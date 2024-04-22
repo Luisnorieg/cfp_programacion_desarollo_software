@@ -22,6 +22,7 @@
 <h2> Área y Perímetro del Rectángulo: </h2>
 <pre>
     <code>
+        Luis gay
     </code>
 </pre>
 <br>    
