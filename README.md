@@ -1,3 +1,5 @@
 # cfp_programacion_desarrollo_software
 
-## [Lectura y Escritura](./psdocodigo/Lectura_Escritra)
+## [Lectura y Escritura](./pseudocodigo/Lectura_Escritra)
+
+## [Condiciones](./pseudocodigo/Condiciones) 
