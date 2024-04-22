@@ -10,4 +10,6 @@
 
 ## [Vectores](./pseudocodigo/Vectores/41-50/)
 
+## [Matrices](./pseudocodigo/Matrces/51-60/)
+
 
