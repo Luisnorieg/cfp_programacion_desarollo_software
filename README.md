@@ -12,4 +12,6 @@
 
 ## [Matrices](./pseudocodigo/Matrces/51-60/)
 
+## [Funciones](./pseudocodigo/Funciones/61-70/)
+
 

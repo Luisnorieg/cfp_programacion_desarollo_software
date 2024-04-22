@@ -1,4 +1,4 @@
-## [Ejercicios del 51 al 60]
+## [Ejercicios del 51 al 60](./51-60/)
 
 1. Suma de Matrices:
 Crea dos matrices de tamaño 3x3. Luego, suma ambas matrices y muestra el resultado.
