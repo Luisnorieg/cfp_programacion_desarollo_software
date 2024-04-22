@@ -4,4 +4,6 @@
 
 ## [Condiciones](./pseudocodigo/Condiciones) 
 
-## [Mientras_Repetir] (./pseudocodigo/Mientras_Repetir)
+## [Mientras_Repetir](./pseudocodigo/Mientras_Repetir)
+
+## [Bucles PARA](./pseudocodigo/Bucles%20PARA/31-40/)
