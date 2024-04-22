@@ -8,6 +8,6 @@
 
 ## [Bucles PARA](./pseudocodigo/Bucles%20PARA/31-40/)
 
-## [Vectores](./pseudocodigo/Vectores/41-45/)
+## [Vectores](./pseudocodigo/Vectores/41-50/)
 
-## [Matrices](./pseudocodigo/Matrices/45-50/)
+
