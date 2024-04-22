@@ -1,4 +1,4 @@
-## [Ejercios del 41 al 45 ](./41-50/)
+## [Ejercios del 41 al 45 ](./41-45/)
 
 1. Suma de Elementos: Crear un array de 5 números enteros, solicitar al usuario que
 ingrese valores para cada posición del array y luego calcular e imprimir la suma de
