@@ -2,6 +2,18 @@
 <h2> Calculadora Simple: </h2>
 <pre>
     <code>
+        Algoritmo Ejercicio_1
+        	Escribir 'Ejercicio 1'
+        	Definir num1 Como Real
+        	Definir num2 Como Real
+        	Escribir 'Ingrese dos nùmeros para operar'
+        	Leer num1 
+        	Leer num2
+        	Escribir 'la suma de ' num1 ' y el ' num2 ' es '  num1 + num2
+        	Escribir 'la resta de ' num1 ' y el ' num2 ' es '  num1 - num2
+        	Escribir 'la multiplicaciòn de ' num1 ' y el ' num2 ' es '  num1 * num2
+        	Escribir 'la divisiòn de ' num1 ' y el ' num2 ' es '  num1 / num2
+        FinAlgoritmo
     </code>
 </pre>
 <br>    
@@ -10,6 +22,7 @@
 <h2> Área y Perímetro del Rectángulo: </h2>
 <pre>
     <code>
+        Luis gay
     </code>
 </pre>
 <br>    
