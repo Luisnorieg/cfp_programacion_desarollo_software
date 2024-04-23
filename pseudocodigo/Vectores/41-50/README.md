@@ -4,7 +4,7 @@ Ejercicios del 41 al 45
 <h2> Suma de Elementos: </h2>
 <pre>
 <code>
-    Algoritmo sin_titulo
+    Algoritmo Suma de Elementos
 	    Definir notas, nota Como entero
 	    Dimension notas[5]
 	    notas[1]=nota
@@ -27,7 +27,7 @@ Ejercicios del 41 al 45
 <h2> Mayor y Menor en un Array: </h2>
 <pre>
 <code>
-    Algoritmo sin_titulo
+    Algoritmo Mayor y Menor en un Array
 	    Definir arreglo como real 
 	    Definir maximo Como Real
 	    Definir minimo Como Real
@@ -67,7 +67,7 @@ Ejercicios del 41 al 45
 <h2> Promedio de Notas: </h2>
 <pre>
 <code>
-    Algoritmo sin_titulo
+    Algoritmo Promedio de Notas
 	    Definir notas, nota Como entero
 	    Dimension notas[10]
 	    Para i=1 Hasta 10 Con Paso 1 Hacer
@@ -86,7 +86,7 @@ Ejercicios del 41 al 45
 <h2> Contador de Números Pares: </h2>
 <pre>
 <code>
-    Algoritmo sin_titulo
+    Algoritmo Contador de Números Pares
 	        Definir num1, contador Como Entero
 	        Dimension num1[6]
 	    Para i=1 hasta 6 Con Paso 1 Hacer
@@ -111,7 +111,7 @@ Ejercicios del 41 al 45
 <h2> Búsqueda de Elemento: </h2>
 <pre>
 <code>
-    Algoritmo sin_titulo
+    Algoritmo Búsqueda de Elemento
 	    Definir num, i Como Entero
 	    Definir caractern Como Caracter
 	    Dimension caractern[7]
@@ -139,7 +139,7 @@ Ejercicios del 41 al 45
 <h2> Inversión de un Array: </h2>
 <pre>
 <code>
-    Algoritmo sin_titulo
+    Algoritmo Inversión de un Array
 	    Definir i Como Real
 	    Dimension array[10]
 	    Para i=1 Hasta 10 Con Paso 1 Hacer
@@ -158,7 +158,7 @@ Ejercicios del 41 al 45
 <h2> Contador de Ocurrencias: </h2>
 <pre>
 <code>
-    Algoritmo sin_titulo
+    Algoritmo Contador de Ocurrencias
 	    Definir contador Como Entero
 	    Definir caractern  Como Cadena
 	    Dimensionar caractern(15)
@@ -199,7 +199,7 @@ Ejercicios del 41 al 45
 <h2> Cálculo de Descuento por Categoría: </h2>
 <pre>
 <code>
-    Algoritmo sin_titulo
+    Algoritmo Cálculo de Descuento por Categoría
 	    Definir categoria, producto Como Caracter
 	    Dimension categoria[3,3]
 	    Dimension producto[3,3]
@@ -232,8 +232,36 @@ Ejercicios del 41 al 45
 <h2> Ejercicio 49 </h2>
 <h2> Ordenamiento de Array: </h2>
 <pre>
-    <code>
-    </code>
+<code>
+	Algoritmo Ordenamiento de Array
+			Definir numero_1 Como Entero
+			Dimension array[6]
+			array[1]=20
+			array[2]=50
+			array[3]=72
+			array[4]=5
+			array[5]=9
+			array[6]=3
+	
+		Para i=1 Hasta 6 Con Paso 1 Hacer
+		Para j = i + 1 Hasta 6 Con Paso 1 Hacer
+			Si array[i] > array[j] Entonces
+				menor_a = array[j]
+				array[j] = array[i];
+				
+				array[i] = menor_a;
+			FinSi
+			
+		FinPara
+		FinPara
+	
+		Para i=1 Hasta 6 Con Paso 1 Hacer
+			Escribir array[i];
+		FinPara
+	FinAlgoritmo
+
+
+</code>
 </pre>
 <br>    
 
@@ -241,7 +269,7 @@ Ejercicios del 41 al 45
 <h2> Eliminación de Duplicados: </h2>
 <pre>
 <code>
-    Algoritmo sin_titulo
+    Algoritmo Eliminación de Duplicados
 	    Definir numero_1 Como Entero
 	    Dimension array[6]
 	    array[1]=20
