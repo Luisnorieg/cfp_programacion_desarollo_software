@@ -1,7 +1,7 @@
 Ejercicios del 41 al 45 
 
 <h2> Ejercicio 41 </h2>
-<h2> Suma de Elementos: </h2>
+<h3> Suma de Elementos: </h3>
 <pre>
 <code>
     Algoritmo Suma de Elementos
@@ -24,7 +24,7 @@ Ejercicios del 41 al 45
 <br>    
 
 <h2> Ejercicio 42 </h2>
-<h2> Mayor y Menor en un Array: </h2>
+<h3> Mayor y Menor en un Array: </h3>
 <pre>
 <code>
     Algoritmo Mayor y Menor en un Array
@@ -64,7 +64,7 @@ Ejercicios del 41 al 45
 <br>    
 
 <h2> Ejercicio 43 </h2>
-<h2> Promedio de Notas: </h2>
+<h3> Promedio de Notas: </h3>
 <pre>
 <code>
     Algoritmo Promedio de Notas
@@ -83,7 +83,7 @@ Ejercicios del 41 al 45
 <br>    
 
 <h2> Ejercicio 44 </h2>
-<h2> Contador de Números Pares: </h2>
+<h3> Contador de Números Pares: </h3>
 <pre>
 <code>
     Algoritmo Contador de Números Pares
@@ -108,7 +108,7 @@ Ejercicios del 41 al 45
 <br>    
 
 <h2> Ejercicio 45 </h2>
-<h2> Búsqueda de Elemento: </h2>
+<h3> Búsqueda de Elemento: </h3>
 <pre>
 <code>
     Algoritmo Búsqueda de Elemento
@@ -136,7 +136,7 @@ Ejercicios del 41 al 45
 <br>    
 
 <h2> Ejercicio 46 </h2>
-<h2> Inversión de un Array: </h2>
+<h3> Inversión de un Array: </h3>
 <pre>
 <code>
     Algoritmo Inversión de un Array
@@ -155,7 +155,7 @@ Ejercicios del 41 al 45
 <br>    
 
 <h2> Ejercicio 47 </h2>
-<h2> Contador de Ocurrencias: </h2>
+<h3> Contador de Ocurrencias: </h3>
 <pre>
 <code>
     Algoritmo Contador de Ocurrencias
@@ -196,7 +196,7 @@ Ejercicios del 41 al 45
 <br>    
 
 <h2> Ejercicio 48 </h2>
-<h2> Cálculo de Descuento por Categoría: </h2>
+<h3> Cálculo de Descuento por Categoría: </h3>
 <pre>
 <code>
     Algoritmo Cálculo de Descuento por Categoría
@@ -230,7 +230,7 @@ Ejercicios del 41 al 45
 <br>    
 
 <h2> Ejercicio 49 </h2>
-<h2> Ordenamiento de Array: </h2>
+<h3> Ordenamiento de Array: </h3>
 <pre>
 <code>
 	Algoritmo Ordenamiento de Array
@@ -266,7 +266,7 @@ Ejercicios del 41 al 45
 <br>    
 
 <h2> Ejercicio 50 </h2>
-<h2> Eliminación de Duplicados: </h2>
+<h3> Eliminación de Duplicados: </h3>
 <pre>
 <code>
     Algoritmo Eliminación de Duplicados
