@@ -16,3 +16,5 @@
 
 ## [Recursividad](/pseudocodigo/Recursividad/71-80/)
 
+## [Responsive](/Ejercicios%20Responsive)
+
