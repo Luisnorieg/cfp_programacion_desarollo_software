@@ -1,378 +1,511 @@
-*{
+* {
     margin: 0;
     padding: 0;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 
-.resolucion {
+header {
+    width: 100vw;
+    height: 15vh;
+}
+
+#navegacion {
+    height: 100%;
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: rgb(0, 0, 0);
+}
+
+.lista_nav {
+    width: 100vw;
+    height: 100%;
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     text-align: center;
 }
 
-#barra-nav{
-    width: 100vw;
-    height: 10vh;
-}
-
-
-
-nav {
-    width: 100vw;
-    height: 10vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 1px;
-    padding-left: 15px;
-    padding-right: 5px;
-    font-weight: bold;
-    background-color: black;
-}
-
-
-
-.c1 {
+#boton-nav {
+    width: 100px;
+    height: 10px;
     color: white;
-    font-size: 10px;
-    display: inline-block;
+    background-color: black;
+    border-style: none;
 }
 
-ul li {
-    display: inline-block;
-    padding: 0px 10px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: flex-end;
+ul {
+    list-style: none;
+    text-align: center;
+    color: white;
 
 }
 
-a {
-    color: blue;
-    text-decoration: none;
+li {
+    margin: 1vw;
 }
 
-.titulo{
-    width: 100vw;
-    height: 70vh;
-    margin-left: 0px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 10px;
-    padding-left: 20px;
-    padding-right: 0px;
-    background: linear-gradient(45deg, red 0%, blue 100%);
-    
+#prod,
+#courses,
+#resources,
+#sign {
+    color: white;
+    background-color: black;
+    border-color: black;
+}
+
+#try {
+    border-style: ridge;
+    border-width: 0.1vw;
 }
 
 
-.contenido {
-    width: 50vw;
-    height: 100vh;
-    margin-left: 500px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 5px;
-    padding-left: 1px; 
-    padding-right: 400px;
+.logo{
+
+    background-color: white;
+    box-shadow: 0px 0px 10px white, 0px 0px 10px white, 0px 0px 10px white, 0px 0px 10px white;
+    width: 10px;
+    height: 10px;
     background-image: url(logo.png);
     background-repeat: no-repeat;
+    background-position: center; 
+}
+
+#logo{
+    width: 50%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lupa {
+    width: 25px;
+    height: 25px;
+}
+
+#nav2 {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.menu{
+    display: none;
+}
+
+
+main {
+    width: 100vw;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(90deg, rgb(223, 71, 33) 0%, rgb(87, 0, 128) 70%, rgb(41, 43, 166)100%);
+}
+
+
+.cuadro-fondo {
+    background-image: url(logo.png);
     background-position: center;
+    background-size: 60%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    position: relative;
+    width: 100vw;
+    height: 100%;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.transparente {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: linear-gradient(65deg, rgba(78, 0, 63, 0.3) 0%, rgba(33, 0, 103, 0.247) 48%, rgba(81, 0, 64, 0.3) 100%);
+    z-index: 2;
+}
+
+.texto-principal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50vw;
+    height: 10vmax;
+    margin-left: 20%;
+    font-size: 1.5vw;
+    z-index: 2;
     
 }
 
-
-.titulo1 {
-    width: 100vw;
-    height: 10vh;
-    margin-left: 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 5px;
-    padding-left: 50px;
-    padding-right:50PX;
-
-
-}
-
-
-:root {
-    --color: #17a2ff
-}
-
-.botones {
-    display: flex;
-    height: 10vh;
-    width: 100vw;
-    gap: 50px;
-    flex-wrap: nowrap;
-    align-items: center;
-    letter-spacing: 5px;
-    padding-top: 50px;
-    padding-left: 1500px;
-
-}
-
-.btn {
-    position: relative;
-    text-decoration: none;
-    color: #001a2b;
-    letter-spacing: 1px;
-    transition: all 0.6s ease;
-
-
-}
-
-.btn-1 {
-    border: 3px solid;
-    display: flex;
-    justify-content: center;
-
-}
-
-.btn-1:hover {
-    color: black;
-    color-interpolation-filters: var(--color);
-    box-shadow: 0 0 20px var(--color);
-    border-color: var(--color);
-
-
-}
-
-
-
-.contenido2 {
-    width: 100vw;
-    height: 50vh;
-    background-color: black;
-    padding-top: 10px;
-    padding-left: 1PX;
-    padding-right: 19PX;
+.texto-principal h2,
+p {
     color: white;
+    width: 100%;
+    height: 100px;
+}
+
+
+.planes {
+    margin-top: 30px;
     display: flex;
     flex-direction: row;
-
+    width: 100%;
+    height: 5vmax;
+    font-size: 1vmax;
 }
 
-
-.subinfo1, .subinfo2 {
-    display: flex;
-    flex-direction: column;
-    height: 20vh;
-    width: 20vw;
-    padding-right: 50px;
-    padding-left: 20px;
-    height: 10px;
-    align-items: flex-start;
-
-
-}
-
-
-.subinfo3 {
-    display: flex;
-    flex-direction: column;
-    height: 10vh;
-    width: 50vw;
-    padding-left: 10px;
-    padding-right: 1px;
-    align-items: flex-end;
-
-
-}
-
-.info1 {
+#plan1,
+#plan2 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 900;
+    background-color: black;
     color: white;
-    color-interpolation-filters: var(--color);
-    box-shadow: 0 0 20px var(--color);
-    border-color: var(--color);
+    border-style: none;
+    width: 30vmax;
+    height: 5vmax;
+    font-size: 2em;
+}
 
-
-
+#plan2 {
+    margin-left: 10px;
+    background-color: rgba(0, 0, 0, 0);
+    border-style: inset;
+    border-color: white;
 }
 
 
-
-@media (min-width: 767px) and (max-width: 1023) {
-
-
-
-nav {
-    width: 2000px;
-    height: 60px;
+#contenido {
+    height: 15vh;
+    background: black;
     display: flex;
+    flex-direction: row;
     align-items: center;
+    justify-content: space-around;
+}
+
+.lenguaje {
+    margin: 10px;
+    background: rgb(84, 84, 84);
+    width: 100%;
+    height: 85%;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
     justify-content: space-between;
-    padding-top: 1px;
-    padding-left: 15px;
-    padding-right: 5px;
-    font-weight: bold;
+}
+
+.logoJS {
+    margin-top: -1%;
+    margin-right: -1%;
+    height: 4vw;
+    width: 4vw;
+}
+
+.logoA {
+    margin-top: -1%;
+    margin-right: -1%;
+    height: 4vw;
+    width: 4vw;
+}
+
+#trending {
     background-color: black;
-}
-
-
-
-.c1 {
-    color: white;
-    font-size: 30px;
-    display: inline-block;
-    padding-right: 900px;
-}
-
-ul li {
-    display: inline-block;
-    padding: 0px 30px;
-
-}
-
-a {
-    color: white;
-    text-decoration: none;
-}
-
-.pagina{
-    height: 100vh;
-    width: 50vw;
-    color: white;
-
-}
-
-.titulo {
-    width: 1500px;
-    height: 600px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding-top: 10px;
-    padding-left: 100px;
-    padding-right: 420px;
-    background: linear-gradient(45deg, red 0%, blue 100%)
-}
-
-.contenido {
-    width: 500px;
-    height: 100px;
-    margin-left: 100px;
-    padding-top: 1px;
-    padding-left: 700px;
-    text-align: left;
-}
-
-.titulo1 {
-    width: 300px;
-    height: 50px;
-    margin-left: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 5px;
-    padding-left: 500px;
-
-
-}
-
-
-:root {
-    --color: #17a2ff
-}
-
-.botones {
-    display: flex;
-    height: 100vh;
-    width: 300vw;
-    gap: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    letter-spacing: 5px;
-    padding-top: 1px;
-    padding-left: 900px;
-
-}
-
-.btn {
-    position: relative;
-    text-decoration: none;
-    color: #001a2b;
-    letter-spacing: 1px;
-    transition-duration: all 0.6s ease;
-
-
-}
-
-.btn-1 {
-    border: 3px solid;
-
-}
-
-.btn-1:hover {
-    color: black;
-    color-interpolation-filters: var(--color);
-    box-shadow: 0 0 20px var(--color);
-    border-color: var(--color);
-
-
-}
-
-
-
-.contenido2 {
-    width: 10vw;
-    height: 50vh;
-    background-color: black;
-    padding-top: 100px;
-    padding-left: 1PX;
-    padding-right: 19PX;
-    color: white;
-    display: flex;
-    flex-direction: row;
-
-}
-
-
-.subinfo1 {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    width: 700vw;
-    padding-right: 50px;
-    padding-left: 20px;
     align-items: flex-start;
-
-
+    justify-content: center;
 }
 
-.subinfo2 {
-    display: flex;
-    flex-direction: column;
-    height: 100px;
-    width: 200px;
-    padding-left: 20px;
-    padding-right: 50px;
-
-}
-
-.subinfo3 {
-    display: flex;
-    flex-direction: column;
-    height: 100px;
-    width: 300px;
-    padding-left: 500px;
-    padding-right: 1px;
-    align-items: flex-end;
-
-
-}
-
-.info1 {
+.texto-cursos {
     color: white;
-    color-interpolation-filters: var(--color);
-    box-shadow: 0 0 20px var(--color);
-    border-color: var(--color);
-
-
-
+    font-size: 90%;
+    margin-left: 15px;
 }
-} 
+
+.texto-cursos2{
+    color: white;
+    font-size: 1vw;
+    margin-left: 1vw;
+}
+
+.no-cursos {
+    font-family: Helvetica, sans-serif;
+    color: rgb(255, 255, 255);
+    margin-left: 15px;
+    font-size: 80%;
+}
+
+.morado {
+    margin-left: 15px;
+    color: rgb(206, 163, 247);
+    font-weight: 300;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: rgb(194, 117, 239);
+}
+
+.texto-cursos3{
+    display: none;
+}
+
+.simbolo {
+    color: rgb(206, 163, 247);
+    font-weight: 300;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: rgb(180, 111, 220);
+}
+
+
+/* Moviles */
+@media screen and (max-width: 767px) {
+
+    #prod,
+    #courses,
+    #boton-nav,
+    #resources,
+    #sign,
+    #try,
+    .texto-cursos3 {
+        display: none;
+    }
+
+    header {
+        height: 15vh;
+        width: 100vw;
+    }
+
+    .menu{
+        display: inline;
+        width: 100%;
+        height: 100%;
+        font-size: larger;
+        color: white;
+        background-color: black;
+        border-style: none;
+    }
+
+    .logo_gato{
+        width: 10vw;
+        height: 10vw;
+    }
+
+    #plural{
+        padding-left: 3vw;
+        text-align: center;
+    }
+
+    main {
+        height: 70vh;
+        width: 100vw;
+    }
+
+
+    .transparente {
+        background: linear-gradient(65deg, rgba(78, 0, 63, 0.5) 0%, rgba(69, 21, 103, 0.5) 48%, rgba(81, 0, 64, 0.3) 100%);
+    }
+
+    .texto-principal {
+        margin-top: -3vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 60vw;
+        height: 20vh;
+        margin-left: -27%;
+        font-size: 2vh;
+        z-index: 2;
+    }
+
+    .planes {
+        margin-top: 15vh;
+        display: flex;
+        flex-direction: column;
+        margin: none;
+    }
+
+    #plan1, #plan2{
+        width: 215px;
+        height: 300px;
+    }
+
+    #plan2 {
+        margin-left: 0px;
+        margin-top: 1vh;
+    }
+
+
+  
+    #contenido {
+        height: 15vh;
+        width: 100vw;
+    }
+
+    .lenguaje {
+        margin: 10px;
+        background: rgb(84, 84, 84);
+        width: 100%;
+        height: 85%;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+
+    .texto-cursos {
+        color: white;
+        font-size: 12px;
+        margin-left: 1vw;
+    }
+
+    .texto-cursos2{
+        color: white;
+        font-size: 12px;
+        margin-left: 1vw;
+    }
+
+    #trending {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 30vw;
+        font-size: 1px;
+    }
+
+    .no-cursos {
+        font-family: Helvetica, sans-serif;
+        color: rgb(255, 255, 255);
+        margin-left: 1vw;
+        font-size: 11px;
+    }
+
+    .morado {
+        margin-left: 1vw;
+        color: rgb(206, 163, 247);
+        -webkit-text-stroke-width: 0px;
+        -webkit-text-stroke-color: rgb(83, 6, 147);
+        font-size: 3.5vw;
+    }
+
+    .simbolo {
+        display: none;
+    }
+}
+
+/* Tabletas y Televisores*/
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+
+    #prod,
+    #courses,
+    #boton-nav,
+    #resources,
+    #sign,
+    #try {
+        display: none;
+    }
+
+    header {
+        height: 10vh;
+        width: 100vw;
+    }
+
+    #nav2{
+        margin-right: 5%;
+    }
+
+    .menu{
+        display: inline;
+        width: 150%;
+        height: 150%;
+        font-size: 250%;
+        color: white;
+        background-color: black;
+        border-style: none;
+        margin-top: -10px;
+    }
+
+    .lupa{
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .li-lupa{
+        width: 3vw;
+    }
+
+    .logo_gato{
+        vertical-align: middle;
+        width: 70px;
+        height: 70px;
+    }
+
+    main {
+        height: 80vh;
+        width: 100vw;
+    }
+
+    .cuadro-fondo {
+        background-image: url(logo.png);
+        background-position: center;
+        background-size: 90%;
+        background-position-x: 50px;
+    }
+
+    .texto-principal {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 2vh;
+        z-index: 2;
+    }
+
+    .planes {
+        margin-top: 20vh;
+ 
+    }
+
+    .lenguaje {
+        display: none;
+    }
+
+    #contenido{
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    #trending {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 40vw;
+    }
+
+    .morado {
+        margin-left: 3vw;
+        color: rgb(206, 163, 247);
+        font-size: 20px;
+    }
+
+    .texto-cursos3{
+        display: flex;
+        color: white;
+        width: 90vw;
+        height: 100vh;
+        font-size: 20px;
+        margin-left: 3vw;
+        
+        
+    }
+
+    .simbolo, .texto-cursos2 {
+        display: none;
+    }
+}
