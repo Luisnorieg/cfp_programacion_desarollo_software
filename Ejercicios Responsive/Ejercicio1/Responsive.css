@@ -1,0 +1,68 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+main{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cara{
+    width: 300px;
+    height: 300px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1), 10px -10px 10px rgba(0, 0, 0, 0.1), -10px 10px 10px rgba(0, 0, 0, 0.1), -10px -10px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.ojo1, .ojo2{
+    width: 70px;
+    height: 70px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 100%;
+    position: relative;
+    animation: mymove 5s infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+@keyframes  mymove{
+    0% {transform:translate(0px);
+        width: 70px;
+        height: 70px;
+        border-radius: 50px;}
+
+    30% {transform: translate(20px, 40px);
+        width: 50px;
+        height: 70px;
+        border-radius: 50px;}
+
+    60% {transform: translate(40px, -50px);
+        width: 50px;
+        height: 70px;
+        border-radius: 50px;}
+
+    80% {transform: translate(0px, 0px);
+        width: 70px;
+        height: 70px;
+        border-radius: 50px;}
+
+    90% {transform: translate(0px, 0px);
+        width: 70px;
+        height: 10px;
+        border-radius: 50px;}
+
+    100%{transform: translate(0px, 0px);
+        width: 70px;
+        height: 70px;
+        border-radius: 50px;}
+}
