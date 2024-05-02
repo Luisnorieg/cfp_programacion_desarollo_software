@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viajes</title>
+    <link rel="stylesheet" href="Responsive2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <header>
+        <div id="virus">
+            <h2>Consulta aquí las actualizaciones sobre el coronavirus.</h2>
+        </div>
+
+        <div id="login">
+            <ul class="lista-nav1">
+                <li id="logo"></li>
+                <i class="fa-solid fa-plane-departure"></i>
+                <li>despegar</li>
+            </ul>
+            <ul class="lista-nav2">
+                <i class="fa-solid fa-right-to-bracket"></i>
+                <li class="iniciar_secion">Iniciar Sesión</li>
+                <i class="fa-solid fa-globe"></i>
+                <li class="iiajes">Mis viajes</li>
+                <i class="fa-solid fa-question"></i>
+                <li class="ayuda">Ayuda</li>
+            </ul>
+        </div>
+
+        <nav id="barra-nav">
+            <ul class="barra-nav">
+                <li>
+                    <div></div>
+                    <div>
+                        <i class="fa-solid fa-house"></i>
+                        Alojamientos
+                    </div>
+                </li>
+                <li>
+                    <div><i class="bi bi-airplane-engines-fill"></i></div>
+                    <div>
+                        <i class="fa-solid fa-compass"></i>
+                        Vuelos
+
+                    </div>
+                </li>
+                <li>
+                    <div><i class="bi bi-box2-fill"></i></div>
+                    <div>
+                        <i class="fa-solid fa-boxes-stacked"></i>
+                        Paquetes
+                    </div>
+                </li>
+                <li>
+                    <div></div>
+                    <div>
+                        <i class="fa-solid fa-building"></i>
+                        Alquileres
+                    </div>
+                </li>
+                <li>
+                    <div></div>
+                    <div>
+                        <i class="fa-solid fa-dumbbell"></i>
+                        Actividades
+                    </div>
+                </li>
+                <li>
+                    <div></div>
+                    <div>
+                        <i class="fa-solid fa-car"></i>
+                        Autos
+                    </div>
+                </li>
+            </ul>
+        </nav>
+
+        <div id="reservaciones">
+            <div class="reservaciones1"></div>
+            <div class="reservaciones2"></div>
+            <div class="reservaciones3"></div>
+        </div>
+    </header>
+    
+    <main id="sugerencias">
+        <div id="lugar-salida">
+            <h3>Saliendo desde Quito</h3>
+            <h2><strong>Boletos de avión</strong> con las mejores aerolíneas </h2>
+        </div>
+        <div class="sugerencias">
+            <div class="viajes1">
+                <div></div>
+                <div>
+                    <h3>Vuelos</h3>
+                    <h2>Viaja a Guayaquil</h2>
+                </div>
+            </div>
+            <div class="viajes2">
+                <div></div>
+                <div>
+                    <h3>Vuelos</h3>
+                    <h2>Viaja a Manta</h2>
+                </div>
+            </div>
+            <div class="viajes3">
+                <div></div>
+                <div>
+                    <h3>Vuelos</h3>
+                    <h2>Viaja a Cuenca</h2>
+                </div>
+            </div>
+            <div class="viajes4">
+                <div></div>
+                <div>
+                    <h3>Vuelos</h3>
+                    <h2>Viaja a Miami</h2>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
