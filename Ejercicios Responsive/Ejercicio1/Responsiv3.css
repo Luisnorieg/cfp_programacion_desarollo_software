@@ -1,0 +1,81 @@
+.memory-game {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  width: 400px;
+  margin: 0 auto;
+}
+
+.memory-card {
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+  position: relative;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.memory-card img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.front-face {
+  transform: rotateY(180deg);
+}
+
+.match {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.no-match {
+  animation: shake 0.5s linear;
+}
+
+@keyframes shake {
+  0% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  100% { transform: translateX(-5px); }
+}
+
+
+
+.memory-card {
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  perspective: 1000px; /* Define la perspectiva para las transformaciones 3D */
+}
+
+.memory-card img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.front-face {
+  transform: rotateY(180deg);
+}
+
+.match {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.no-match {
+  animation: shake 0.5s linear;
+}
+
+@keyframes shake {
+  0% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  100% { transform: translateX(-5px); }
+}
