@@ -5,8 +5,8 @@
 
 header{
     width: 100vw;
-    height: 60vh;
-    background-color: rgb(155, 105, 221); 
+    height: 4vh;
+    /*background-color: rgb(155, 105, 221); */
 }
 
 #virus{
@@ -35,18 +35,6 @@ header{
     justify-content: center;
 }
 
-.cancelacion{
-    background-color: beige;
-    display: grid;
-    grid-column: auto;
-    margin-left: 700px;
-    width: 25vw;
-    height: 20vh;
-    margin-top: 5PX;
-
-
-}
-
 
 .lista-nav2{
     background-color: rgb(210, 210, 210, 0.6);
@@ -54,6 +42,7 @@ header{
     height: 100%;
     border-bottom-left-radius: 20px;
 }
+
 
 .titulo6{
     color: blueviolet;
@@ -92,14 +81,59 @@ header{
 }
 
 .reservaciones1{
-   width: 66vw;
-   height: 30vh;
+   width: 75vw;
+   height: 40vh;
    background-color: rgb(63, 7, 141);
    color: white;
    border-radius: 10px;
-   margin-top: -75px;
+   margin-top: -15px;
    
 }
+
+#lugar-salida{
+    margin-right: 650px;
+    margin-top: 20px;
+
+
+
+}
+
+.confirm1{
+    margin-top: 10px;
+    margin-left: 30px;
+    font-size: 10px;
+
+
+
+}
+
+.confirm2{
+    margin-top: 100px;
+    margin-left: 30px;
+    font-size: 10px;
+
+
+
+}
+
+.check1{
+    margin-top: 50px;
+    margin-left: 30px;
+    font-size: 10px;
+}   
+
+
+
+
+.check2{
+    margin-top: -15px;
+    margin-left: 250px;
+    font-size: 10px;
+    width: 15vw;
+
+
+}
+
 
 .titulo2{
     margin-top: 10px;
@@ -263,7 +297,7 @@ header{
 }
 
 .box3{
-    margin-left: 335px;
+    margin-left: 105px;
     margin-top: -20px;
     color: white;
     width: 20px;
@@ -384,14 +418,6 @@ main{
 
 }
 
-#lugar-salida{
-    width: 90vw;
-    height: 0vh;
-    font-size: 2vh;
-    color: rgb(87, 83, 83);
-    margin-left: 20px;
-    margin-top: 20px;
-}
 
 .sugerencias{
     display: grid;
@@ -403,30 +429,17 @@ main{
     width: 50vw;
     height: 60vh;
     margin-top: -80PX;
-    
-}
+}   
+
 
 .destiny{
     width: 20vw;
-    height: 90vh;
-    margin-top: 150px;
+    height: 10vh;
+    margin-top: 160px;
     color: black;
     background-color: white;
     border-radius: 2PX;
     font-size: x-small;
-
-
-
-
-}
-
-.viajes{
-    height: 20vh;
-    width: 20vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    
 }
 
 .viajes1{
@@ -439,7 +452,6 @@ main{
     background-image: url(guayaquil.png);
     background-size: 300px;
     background-repeat: no-repeat;
-    color: white;
     border-radius: 5px;
 }
 
@@ -453,7 +465,6 @@ main{
     background-image: url(Manta.png);
     background-size: 300px;
     background-repeat: no-repeat;
-    color: white;
     border-radius: 5px;
     
 }
@@ -468,7 +479,6 @@ main{
     background-image: url(Cuenca.png);
     background-size: 300px;
     background-repeat: no-repeat;
-    color: white;
     border-radius: 5px;
 
 }
@@ -483,8 +493,491 @@ main{
     background-image: url(miami.png);
     background-size: 300px;
     background-repeat: no-repeat;
-    color: white;
     border-radius: 5px;
 
 }
 
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+    *{
+        margin: 0px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    header{
+        width: 100vw;
+        height: 5vh;
+        /*background-color: rgb(155, 105, 221); */
+    }
+    
+    #virus{
+        width: 100vw;
+        height: 3vh;
+        font-size: 60%;
+        text-align: center;
+        text-decoration: underline; 
+        background-color: rgb(222, 213, 250);
+    }
+    
+    #login{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        background-color: white;
+        height: 5vh;
+    }
+    
+    .lista-nav1, .lista-nav2 {
+        display: flex;
+        flex-direction: row;
+        gap: 5%;
+        list-style: none;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    
+    .lista-nav2{
+        background-color: rgb(210, 210, 210, 0.6);
+        width: 30vw;
+        height: 100%;
+        border-bottom-left-radius: 20px;
+    }
+    
+    
+    .titulo6{
+        color: blueviolet;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 30px;
+    }
+    
+    
+    .barra-nav{
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        gap: 2%;
+        background-color: white;
+        height: 12vh;
+        align-items: center;
+    }
+    
+    #reservaciones{
+        width: 100vw;
+        height: 50vh;
+        background-color: rgb(222, 213, 250);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        
+    }
+    
+    .reservaciones{
+        background-color: rgb(63, 7, 141);
+        width: 85%;
+        height: 80%;
+        border-radius: 8px;
+        
+    }
+    
+    .reservaciones1{
+       width: 90vw;
+       height: 45vh;
+       background-color: rgb(63, 7, 141);
+       color: white;
+       border-radius: 10px;
+       margin-top: -15px;
+       
+    }
+    
+    #lugar-salida{
+        margin-right: 650px;
+        margin-top: 20px;
+    
+    
+    
+    }
+    
+ 
+    .check1{
+        margin-top: 70px;
+        margin-left: 30px;
+        font-size: 10px;
+    }   
+    
+    
+    
+    
+    .check2{
+        margin-top: -50px;
+        margin-left: 250px;
+        font-size: 10px;
+        width: 15vw;
+    
+    
+    }
+    
+    
+    .titulo2{
+        margin-top: 10px;
+        margin-left: 20px;
+    }
+    
+    .titulo3{
+        margin-top: 10px;
+        margin-left: 20px;
+    
+    }
+    
+    .botones_de_vuelos{
+        width: 100vw;
+        height: 5vh;
+    
+    
+    
+    }
+    
+    .bnt1{
+        margin-top: 10px;
+        width: 10vw;
+        height: 10vh;
+        padding-left: 20px;
+       
+        
+    }
+    
+    .bnt2{
+        width: 10vw;
+        height: 10vh;
+        padding-left: 150px;
+        margin-top: -65px;
+        
+    }
+    
+    .bnt3{
+        width: 10vw;
+        height: 10vh;
+        padding-left: 250px;
+        margin-top: -65px;
+       
+        
+    }
+    
+    .mes1{
+        margin-left: 3px;
+        margin-top: 60px;
+        color: white;
+        width: 200px;
+        height: 30px;
+        font-size: smaller;
+        text-align: left;
+        color: black;
+        border-radius: 10px;
+    
+    }
+    
+    .mes2{
+        margin-left: 210px;
+        margin-top: 60px;
+        color: white;
+        width: 150px;
+        height: 30px;
+        font-size: smaller;
+        text-align: left;
+        color: black;
+        border-radius: 10px;
+    }
+    
+    
+    .icono1{
+        display: grid;
+        grid-template-columns: 33% 33% 33% 33%;
+        margin-top: 10px;
+        margin-left: 10px;
+        font-size: 10px;
+        width: 1vw;
+        height: 1vh;
+    
+    
+    }
+    
+    .metaicono1{
+    
+        height: 1vh;
+        width: 1vw;
+        margin-top: 1px;
+    
+    }
+    
+    .box1{
+        margin-left: 10px;
+        margin-top: 10px;
+        color: white;
+        width: 20px;
+        height: 10px;
+        font-size: smaller;
+    
+    
+    }
+    
+    .destino1{
+        margin-left: 10px;
+        margin-top: 7px;
+        width: 35vw;
+        height: 5vh;
+        background-color: white;
+        color: black;
+        justify-content: center;
+        align-content: center;
+        padding-left: 10px;
+        border-radius: 5px;
+    
+    }
+    
+    
+    
+    .metaicono2{
+    
+        height: 1vh;
+        width: 1vw;
+        margin-top: 1px
+    
+    }
+    
+    .box2{
+        margin-left: 310px;
+        margin-top: 10px;
+        color: white;
+        width: 20px;
+        height: 10px;
+        font-size: smaller;
+    
+    
+    
+    }
+    
+    .destino2{
+        margin-left: 300px;
+        margin-top: 7px;
+        width: 40vw;
+        height: 5vh;
+        background-color: white;
+        color: black;
+        justify-content: center;
+        align-content: center;
+        padding-left: 20px;
+        border-radius: 5px;
+        font-size:9px ;
+    
+    }
+    
+    .metaicono3{
+    
+        height: 1vh;
+        width: 1vw;
+        margin-top: 1px;
+    
+    }
+    
+    .box3{
+        margin-left: 235px;
+        margin-top: 10px;
+        color: white;
+        width: 20px;
+        height: 10px;
+        font-size: smaller;
+    }
+    
+    
+    
+    
+    .metaicono5{
+    
+        height: 1vh;
+        width: 1vw;
+        margin-top: 1px;
+    
+    }
+    
+    .box5{
+        margin-left: 420px;
+        margin-top: -25px;
+        width: 80px;
+        height: 10px;
+        font-size: smaller;
+        text-align: left;
+        
+    }
+    
+    
+    
+    .destino5{
+        margin-left: 420px;
+        margin-top: 20px;
+        width: 5vw;
+        height: 5vh;
+        background-color: white;
+        color: black;
+        justify-content: center;
+        align-content: center;
+        padding-left: 5px;
+        border-radius: 5px;
+    
+    }
+    
+    
+    .metaicono4{
+    
+        height: 1vh;
+        width: 1vw;
+        margin-top: -1px;
+    
+    }
+    
+    .box4{
+        margin-left: 380px;
+        margin-top: 35px;
+        color: white;
+        width: 90px;
+        height: 10px;
+        font-size: smaller;
+        text-align: left;
+        
+    }
+    
+    
+    
+    .destino4{
+        margin-left: 380px;
+       /* margin-top: 15px;*/
+        width: 31vw;
+        height: 5vh;
+        background-color: white;
+        color: black;
+        justify-content: center;
+        align-content: center;
+        padding-left: 10px;
+        border-radius: 5px;
+    
+    }
+    
+    .metaicono6{
+    
+        height: 1vh;
+        width: 1vw;
+        margin-top: -1px;
+    
+    }
+    
+    .destino6{
+        margin-left: 700px;
+        margin-top: -10px;
+        width: 10vw;
+        height: 5vh;
+        border-radius: 50px;
+        background-color: rgb(240, 88, 0);
+        color: black;
+        justify-content: center;
+        align-content: center;
+        padding-left: 10px;
+    
+    }
+    
+    
+    main{
+        width: 100vw;
+        height: 50vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(210, 210, 210, 0.7);;
+    }
+    
+    #sugerencias{
+        margin-top: 63px;
+    
+    
+    
+    }
+    
+    
+    .sugerencias{
+        display: grid;
+        grid-template-columns: 33% 33% 33% 33%;
+        grid-column: auto;
+        align-items: center;
+        margin-right: 500px;
+        gap: 5em;
+        width: 50vw;
+        height: 60vh;
+        margin-top: -80PX;
+    }   
+    
+    
+    .destiny{
+        width: 20vw;
+        height: 10vh;
+        margin-top: 160px;
+        color: black;
+        background-color: white;
+        border-radius: 2PX;
+        font-size: x-small;
+    }
+    
+    .viajes1{
+        
+        height: 20vh;
+        width: 20vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-image: url(guayaquil.png);
+        background-size: 300px;
+        background-repeat: no-repeat;
+        border-radius: 5px;
+    }
+    
+    .viaje2{
+        
+        height: 20vh;
+        width: 20vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-image: url(Manta.png);
+        background-size: 300px;
+        background-repeat: no-repeat;
+        border-radius: 5px;
+        
+    }
+    
+    .viaje3{
+        
+        height: 20vh;
+        width: 20vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-image: url(Cuenca.png);
+        background-size: 300px;
+        background-repeat: no-repeat;
+        border-radius: 5px;
+    
+    }
+    
+    .viaje4{
+        
+        height: 20vh;
+        width: 20vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-image: url(miami.png);
+        background-size: 300px;
+        background-repeat: no-repeat;
+        border-radius: 5px;
+    
+    }
+    
+}
