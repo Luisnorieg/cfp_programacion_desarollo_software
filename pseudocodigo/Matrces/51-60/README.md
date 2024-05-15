@@ -53,6 +53,66 @@ Ejercicios del 51 al 60
 <h3> Juego de la Vida (Conway's Game of Life): </h3>
 <pre>
     <code>
+
+    Algoritmo  DibujoProgresivoEstrella
+    Definir matriz Como Caracter
+    Definir i, j, paso Como Entero
+    paso = 0
+	
+	Dimension matriz[5,5]
+    
+    Para i = 1 Hasta 5 Con Paso 1
+        Para j = 1 Hasta 5 Con Paso 1
+            matriz[i, j] = " "
+        FinPara
+    FinPara
+    
+    
+    Mientras paso <= 5 Hacer
+        
+        Limpiar Pantalla
+        
+        Segun paso Hacer
+            Caso 0:
+                matriz[3, 3] = "*"
+            Caso 1:
+                matriz[2, 3] = "*"
+                matriz[4, 3] = "*"
+            Caso 2:
+                matriz[3, 2] = "*"
+                matriz[3, 4] = "*"
+            Caso 3:
+                matriz[2, 2] = "*"
+                matriz[4, 4] = "*"
+            Caso 4:
+                matriz[2, 4] = "*"
+                matriz[4, 2] = "*"
+            Caso 5:
+                
+                Escribir "Estrella completa"
+        FinSegun
+        
+        
+        Para i = 1 Hasta 5 Con Paso 1
+            Para j = 1 Hasta 5 Con Paso 1
+                Escribir Sin Saltar matriz[i, j]
+            FinPara
+            Escribir "" 
+        FinPara
+        
+        Si paso < 5 Entonces
+           
+            Escribir "Presione una tecla para continuar..."
+            Leer tecla 
+        FinSi
+        
+        paso = paso + 1
+    FinMientras
+FinAlgoritmo
+
+
+
+        
     </code>
 </pre>
 <br>    
