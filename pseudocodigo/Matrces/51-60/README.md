@@ -108,20 +108,144 @@ Ejercicios del 51 al 60
         
         paso = paso + 1
     FinMientras
-FinAlgoritmo
+	FinAlgoritmo
 
 
 
         
-    </code>
+</code>
 </pre>
 <br>    
 
 <h2> Ejercicio 58 </h2>
 <h3> Laberinto con Obstáculos y Algoritmo de Búsqueda: </h3>
 <pre>
-    <code>
-    </code>
+<code>
+		Algoritmo Ejercicio_58
+		Definir matriz, op Como Entero
+		Dimension matriz[10,10]                      
+		Para i=1 Hasta 10 Con Paso 1 Hacer
+		para j=1 hasta 10 Con Paso 1 Hacer
+			matriz[i,j] = 1
+		FinPara
+		FinPara           
+		Escribir ' '            
+	
+	matriz[1,3] = 5
+	matriz[2,3] = 0
+	matriz[3,3] = 0
+	matriz[4,3] = 0
+	matriz[4,4] = 0
+	matriz[4,5] = 0
+	matriz[5,5] = 0
+	matriz[6,5] = 0
+	matriz[6,6] = 0
+	matriz[6,7] = 0
+	matriz[5,7] = 0
+	matriz[5,8] = 0
+	matriz[5,9] = 0
+	matriz[6,9] = 0
+	matriz[7,9] = 0
+	matriz[8,9] = 0
+	matriz[8,8] = 0
+	matriz[9,8] = 0
+	matriz[9,7] = 0
+	matriz[10,7] = 0            
+
+	matriz[5,3] = 0
+	matriz[4,7] = 0
+	matriz[3,7] = 0
+	matriz[6,3] = 0
+	matriz[7,5] = 0
+	matriz[7,3] = 0
+	matriz[8,3] = 0
+	matriz[9,3] = 0
+	matriz[9,4] = 0
+	matriz[9,5] = 0           
+	Repetir
+		
+		Para i<-1 Hasta 10 Hacer
+			Para j<-1 Hasta 10 Hacer
+				si matriz[i,j] <> 1 y matriz[i,j] <> 5 Entonces
+					matriz[i,j] = 0 
+				FinSi
+				Escribir  matriz[i,j], ' | ' Sin Saltar
+			FinPara
+			Escribir ''
+		FinPara
+		Escribir ''
+		
+		
+		Escribir 'Ingrese una opción'
+		Escribir '2. Bajar'
+		Escribir '8. Subir'
+		Escribir '6. Derecha'
+		Escribir '4. Izquierda'
+		Leer opc
+		Segun opc
+			2:
+				para i = 1 Hasta 10 Hacer
+					para j = 1 Hasta 10 Hacer
+						si matriz[i,j] = 5 y i < 10 Entonces
+							si matriz[i+1,j] = 1 Entonces
+								matriz[i+1,j] = 5
+								matriz[i,j] = 1
+								i = 10
+								j = 10
+							FinSi
+						FinSi
+					FinPara
+				FinPara
+			6:
+				para i = 1 Hasta 10 Hacer
+					para j = 1 Hasta 10 Hacer
+						si matriz[i,j] = 5 y i < 11 Entonces
+							si matriz[i,j+1] = 1 Entonces
+								matriz[i,j+1] = 5
+								matriz[i,j] = 1
+								i = 11
+								j = 11
+							FinSi
+						FinSi
+					FinPara
+				FinPara
+			4:
+				para i = 1 Hasta 10 Hacer
+					para j = 1 Hasta 10 Hacer
+						si matriz[i,j] = 5 y i < 10 Entonces
+							si matriz[i,j-1] = 1 Entonces
+								matriz[i,j-1] = 5
+								matriz[i,j] = 1
+								i = 10
+								j = 10
+							FinSi
+						FinSi
+					FinPara
+				FinPara
+			8:
+				para i = 1 Hasta 10 Hacer
+					para j = 1 Hasta 10 Hacer
+						si matriz[i,j] = 5 y j < 10 Entonces
+							si matriz[i-1,j] = 1 Entonces
+								matriz[i-1,j] = 5
+								matriz[i,j] = 1
+								i = 10
+								j = 10
+							FinSi
+						FinSi
+					FinPara
+				FinPara
+		FinSegun
+		
+		Limpiar Pantalla
+	Hasta Que matriz[10,10] == 5
+	
+	Limpiar Pantalla
+	Escribir 'Felicidades has ganado'
+	Escribir 'Has ganado'
+	FinAlgoritmo
+   
+</code>
 </pre>
 <br>    
 
