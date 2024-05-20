@@ -75,7 +75,78 @@ Ejercicios del 51 al 60
 <h3> Promedio por Columna: </h3>
 <pre>
     <code>
-    </code>
+    
+	    Algoritmo Generar_Figura_Progresiva
+    Definir matriz Como Caracter
+    Definir fila, columna, paso, posicion_inicial, posicion_actual Como Entero
+    posicion_inicial = Aleatorio(1,25)
+    posicion_actual = 0
+    
+    // Inicializar matriz de 5x5 con espacios en blanco
+    Dimension matriz[5,5]
+    Para fila <- 1 Hasta 5 Con Paso 1
+        Para columna <- 1 Hasta 5 Con Paso 1
+            posicion_actual = posicion_actual + 1
+            Si(posicion_actual == posicion_inicial) Entonces
+                matriz[fila, columna] = "*"
+            Sino
+                Si(matriz[fila, columna] <> "*") Entonces
+                    matriz[fila, columna] = " "
+                FinSi
+            FinSi
+        FinPara
+    FinPara
+    
+    // Pedir al usuario las coordenadas de la figura
+    Escribir "Ingrese la fila de la figura (1-5): "
+    Leer fila
+    Escribir "Ingrese la columna de la figura (1-5): "
+    Leer columna
+    
+    Mientras paso <= 5 Hacer
+        
+        Limpiar Pantalla
+        
+        Segun paso Hacer
+            Caso 0:
+                matriz[fila, columna] = "*"
+            Caso 1:
+                matriz[fila - 1, columna] = "*"
+                matriz[fila + 1, columna] = "*"
+            Caso 2:
+                matriz[fila, columna - 1] = "*"
+                matriz[fila, columna + 1] = "*"
+            Caso 3:
+                matriz[fila - 1, columna - 1] = "*"
+                matriz[fila + 1, columna + 1] = "*"
+            Caso 4:
+                matriz[fila - 1, columna + 1] = "*"
+                matriz[fila + 1, columna - 1] = "*"
+            Caso 5:
+                Escribir "Estrella completa"
+        FinSegun
+
+        // Mostrar matriz
+        Para fila <- 1 Hasta 5 Con Paso 1
+            Para columna <- 1 Hasta 5 Con Paso 1
+                Escribir Sin Saltar matriz[fila, columna]
+            FinPara
+            Escribir "" 
+        FinPara
+        
+        Si paso < 5 Entonces
+            Escribir "Presione una tecla para continuar..."
+            Leer tecla 
+        FinSi
+        
+        paso = paso + 1
+    FinMientras
+    
+    FinAlgoritmo
+
+
+     
+</code>
 </pre>
 <br>    
 
