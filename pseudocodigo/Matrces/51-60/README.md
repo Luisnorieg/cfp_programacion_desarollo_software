@@ -5,7 +5,69 @@ Ejercicios del 51 al 60
 <h3> Suma de Matrices: </h3>
 <pre>
     <code>
-    </code>
+    
+	    Algoritmo Generar_Figura_Progresiva
+    Definir matriz Como Caracter
+    Definir fila, columna, paso Como Entero
+    paso = 0
+    
+    // Inicializar matriz de 10x10 con ceros
+    Dimension matriz[10,10]
+    Para fila <- 1 Hasta 10 Con Paso 1
+        Para columna <- 1 Hasta 10 Con Paso 1
+            matriz[fila, columna] = " "
+        FinPara
+    FinPara
+    
+    // Pedir al usuario las coordenadas de la figura
+    Escribir "Ingrese la fila de la figura (1-10): "
+    Leer fila
+    Escribir "Ingrese la columna de la figura (1-10): "
+    Leer columna
+    
+    Mientras paso <= 5 Hacer
+        
+        Limpiar Pantalla
+        
+        Segun paso Hacer
+            Caso 0:
+                matriz[fila, columna] = "*"
+            Caso 1:
+                matriz[fila - 1, columna] = "*"
+                matriz[fila + 1, columna] = "*"
+            Caso 2:
+                matriz[fila, columna - 1] = "*"
+                matriz[fila, columna + 1] = "*"
+            Caso 3:
+                matriz[fila - 1, columna - 1] = "*"
+                matriz[fila + 1, columna + 1] = "*"
+            Caso 4:
+                matriz[fila - 1, columna + 1] = "*"
+                matriz[fila + 1, columna - 1] = "*"
+            Caso 5:
+                Escribir "Estrella completa"
+        FinSegun
+
+        // Mostrar matriz
+        Para fila <- 1 Hasta 10 Con Paso 1
+            Para columna <- 1 Hasta 10 Con Paso 1
+                Escribir Sin Saltar matriz[fila, columna]
+            FinPara
+            Escribir "" 
+        FinPara
+        
+        Si paso < 5 Entonces
+            Escribir "Presione una tecla para continuar..."
+            Leer tecla 
+        FinSi
+        
+        paso = paso + 1
+    FinMientras
+    
+    FinAlgoritmo
+
+     
+</code>
 </pre>
 <br>    
 
