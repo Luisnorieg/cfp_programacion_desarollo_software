@@ -45,114 +45,73 @@ Ejercicios del 51 al 60
 <h3> Laberinto: </h3>
 <pre>
     <code>
-      Algoritmo LaberintoConAEstrellaSinFunciones
-    // Definir el tamaño del laberinto
-    Definir ancho, alto Como Entero
-    ancho = 5
-    alto = 5
 
-    // Inicializar el laberinto con obstáculos (1 son obstáculos, 0 son celdas libres)
-    Definir laberinto Como Entero
-    Dim laberinto[5, 5]
-    laberinto[0, 0] = 0; laberinto[0, 1] = 0; laberinto[0, 2] = 1; laberinto[0, 3] = 0; laberinto[0, 4] = 0
-    laberinto[1, 0] = 0; laberinto[1, 1] = 0; laberinto[1, 2] = 1; laberinto[1, 3] = 0; laberinto[1, 4] = 0
-    laberinto[2, 0] = 0; laberinto[2, 1] = 0; laberinto[2, 2] = 0; laberinto[2, 3] = 0; laberinto[2, 4] = 1
-    laberinto[3, 0] = 1; laberinto[3, 1] = 1; laberinto[3, 2] = 1; laberinto[3, 3] = 0; laberinto[3, 4] = 0
-    laberinto[4, 0] = 0; laberinto[4, 1] = 0; laberinto[4, 2] = 0; laberinto[4, 3] = 0; laberinto[4, 4] = 0
-
+      Algoritmo LaberintoConObstaculos
+    // Definir el laberinto, 0 = camino, 1 = obstáculo
+    Dim laberinto[10,10] Como Entero
+    laberinto[0,0] = 0; laberinto[0,1] = 0; laberinto[0,2] = 1; laberinto[0,3] = 0; laberinto[0,4] = 0; laberinto[0,5] = 0; laberinto[0,6] = 0; laberinto[0,7] = 0; laberinto[0,8] = 0; laberinto[0,9] = 0
+    // ... Definir el resto del laberinto
+    
     // Coordenadas de inicio y fin
-    Definir inicioX, inicioY, finX, finY Como Entero
-    inicioX = 0; inicioY = 0
-    finX = 4; finY = 4
-
-    // Inicializar listas abiertas y cerradas
-    Definir abiertos, cerrados Como Entero
-    Dim abiertos[100, 3] // x, y, f
-    Dim cerrados[100, 2] // x, y
-    Definir numAbiertos, numCerrados Como Entero
-    numAbiertos = 0; numCerrados = 0
-
-    // Función heurística (distancia de Manhattan)
-    Definir heuristica Como Entero
-    heuristica = Abs(inicioX - finX) + Abs(inicioY - finY)
-
-    // Añadir nodo a la lista abierta
-    abiertos[numAbiertos, 0] = inicioX
-    abiertos[numAbiertos, 1] = inicioY
-    abiertos[numAbiertos, 2] = heuristica
-    numAbiertos = numAbiertos + 1
-
-    Definir encontrado Como Logico
-    encontrado = Falso
-
-    // Algoritmo A*
-    Mientras numAbiertos > 0 Y encontrado == Falso Hacer
-        // Encontrar el nodo con el menor f en la lista abierta
-        Definir menorIndice, menorF Como Entero
-        menorIndice = 0
-        menorF = abiertos[0, 2]
-        Para i = 1 Hasta numAbiertos - 1 Con Paso 1 Hacer
-            Si abiertos[i, 2] < menorF Entonces
-                menorF = abiertos[i, 2]
-                menorIndice = i
+    inicio_x = 0
+    inicio_y = 0
+    fin_x = 9
+    fin_y = 9
+    
+    // Crear la cola para la búsqueda BFS
+    Dim cola[1000,2] Como Entero
+    cabeza = 0
+    cola[0,0] = inicio_x
+    cola[0,1] = inicio_y
+    final = 1
+    
+    // Crear la matriz de distancias y marcar todas las celdas como no visitadas (-1)
+    Dim distancia[10,10] Como Entero
+    Para i = 0 Hasta 9 Hacer
+        Para j = 0 Hasta 9 Hacer
+            distancia[i,j] = -1
+        FinPara
+    FinPara
+    
+    distancia[inicio_x, inicio_y] = 0
+    
+    // Direcciones de movimiento: derecha, abajo, izquierda, arriba
+    Dim direcciones[4,2] Como Entero
+    direcciones[0,0] = 0; direcciones[0,1] = 1
+    direcciones[1,0] = 1; direcciones[1,1] = 0
+    direcciones[2,0] = 0; direcciones[2,1] = -1
+    direcciones[3,0] = -1; direcciones[3,1] = 0
+    
+    // Búsqueda BFS
+    Mientras cabeza < final Hacer
+        actual_x = cola[cabeza,0]
+        actual_y = cola[cabeza,1]
+        cabeza = cabeza + 1
+        
+        Si actual_x = fin_x Y actual_y = fin_y Entonces
+            // Se ha encontrado la salida
+            Escribir "Se encontró el camino más corto con longitud: ", distancia[actual_x, actual_y]
+            FinAlgoritmo
+        FinSi
+        
+        Para i = 0 Hasta 3 Hacer
+            nuevo_x = actual_x + direcciones[i,0]
+            nuevo_y = actual_y + direcciones[i,1]
+            
+            Si nuevo_x >= 0 Y nuevo_x < 10 Y nuevo_y >= 0 Y nuevo_y < 10 Entonces
+                Si laberinto[nuevo_x, nuevo_y] = 0 Y distancia[nuevo_x, nuevo_y] = -1 Entonces
+                    distancia[nuevo_x, nuevo_y] = distancia[actual_x, actual_y] + 1
+                    cola[final,0] = nuevo_x
+                    cola[final,1] = nuevo_y
+                    final = final + 1
+                FinSi
             FinSi
         FinPara
-
-        // Mover el nodo a la lista cerrada
-        Definir actualX, actualY, actualG Como Entero
-        actualX = abiertos[menorIndice, 0]
-        actualY = abiertos[menorIndice, 1]
-        actualG = abiertos[menorIndice, 2] - (Abs(actualX - finX) + Abs(actualY - finY))
-        cerrados[numCerrados, 0] = actualX
-        cerrados[numCerrados, 1] = actualY
-        numCerrados = numCerrados + 1
-        Para i = menorIndice Hasta numAbiertos - 2 Con Paso 1 Hacer
-            abiertos[i, 0] = abiertos[i + 1, 0]
-            abiertos[i, 1] = abiertos[i + 1, 1]
-            abiertos[i, 2] = abiertos[i + 1, 2]
-        FinPara
-        numAbiertos = numAbiertos - 1
-
-        // Verificar si hemos llegado al objetivo
-        Si actualX == finX Y actualY == finY Entonces
-            encontrado = Verdadero
-        SiNo
-            // Generar los nodos vecinos (arriba, abajo, izquierda, derecha)
-            Para dx = -1 Hasta 1 Con Paso 1 Hacer
-                Para dy = -1 Hasta 1 Con Paso 1 Hacer
-                    Si Abs(dx) + Abs(dy) == 1 Entonces
-                        Definir vecinoX, vecinoY Como Entero
-                        vecinoX = actualX + dx
-                        vecinoY = actualY + dy
-                        // Verificar si el vecino es una celda libre y no está en la lista cerrada
-                        Definir enCerrados Como Logico
-                        enCerrados = Falso
-                        Para j = 0 Hasta numCerrados - 1 Con Paso 1 Hacer
-                            Si cerrados[j, 0] == vecinoX Y cerrados[j, 1] == vecinoY Entonces
-                                enCerrados = Verdadero
-                            FinSi
-                        FinPara
-                        Si vecinoX >= 0 Y vecinoX < ancho Y vecinoY >= 0 Y vecinoY < alto Y laberinto[vecinoX, vecinoY] == 0 Y enCerrados == Falso Entonces
-                            heuristica = Abs(vecinoX - finX) + Abs(vecinoY - finY)
-                            abiertos[numAbiertos, 0] = vecinoX
-                            abiertos[numAbiertos, 1] = vecinoY
-                            abiertos[numAbiertos, 2] = actualG + 1 + heuristica
-                            numAbiertos = numAbiertos + 1
-                        FinSi
-                    FinSi
-                FinPara
-            FinPara
-        FinSi
     FinMientras
-
-    // Mostrar resultado
-    Si encontrado Entonces
-        Escribir "Camino encontrado"
-    SiNo
-        Escribir "No hay camino"
-    FinSi
+    
+    // Si no se encuentra un camino
+    Escribir "No se encontró un camino hasta la salida."
     FinAlgoritmo
-
      
 </code>
 </pre>
@@ -367,94 +326,113 @@ Ejercicios del 51 al 60
 <h3> Rompecabezas del 15: </h3>
 <pre>
     <code>
-     Algoritmo RompecabezasDel15
+     
+    algoritmo RompecabezasDel15
+    // Declarar la matriz y las variables
+    dimension tablero[4, 4]
+    x_vacio = 3
+    y_vacio = 3
 
-    Definir tablero[4,4] como entero
-    Definir filaVacia, columnaVacia como entero
-    Definir filaMovimiento, columnaMovimiento como entero
-    Definir opcion como caracter
-
-    // Inicializar tablero
-    Para fila <- 0 hasta 3
-        Para columna <- 0 hasta 3
-            tablero[fila, columna] <- fila * 4 + columna + 1
-        FinPara
-    FinPara
-    tablero[3,3] <- 0 // El espacio vacío se representa con el número 0
-
-    // Mezclar tablero
-    Para i <- 1 hasta 100
-        filaMovimiento <- aleatorio(0, 3)
-        columnaMovimiento <- aleatorio(0, 3)
-        Si (filaMovimiento > 0) entonces
-            Si (tablero[filaMovimiento - 1, columnaMovimiento] = 0) entonces
-                tablero[filaMovimiento - 1, columnaMovimiento] <- tablero[filaMovimiento, columnaMovimiento]
-                tablero[filaMovimiento, columnaMovimiento] <- 0
-            FinSi
-        FinSi
-        Si (filaMovimiento < 3) entonces
-            Si (tablero[filaMovimiento + 1, columnaMovimiento] = 0) entonces
-                tablero[filaMovimiento + 1, columnaMovimiento] <- tablero[filaMovimiento, columnaMovimiento]
-                tablero[filaMovimiento, columnaMovimiento] <- 0
-            FinSi
-        FinSi
-        Si (columnaMovimiento > 0) entonces
-            Si (tablero[filaMovimiento, columnaMovimiento - 1] = 0) entonces
-                tablero[filaMovimiento, columnaMovimiento - 1] <- tablero[filaMovimiento, columnaMovimiento]
-                tablero[filaMovimiento, columnaMovimiento] <- 0
-            FinSi
-        FinSi
-        Si (columnaMovimiento < 3) entonces
-            Si (tablero[filaMovimiento, columnaMovimiento + 1] = 0) entonces
-                tablero[filaMovimiento, columnaMovimiento + 1] <- tablero[filaMovimiento, columnaMovimiento]
-                tablero[filaMovimiento, columnaMovimiento] <- 0
-            FinSi
-        FinSi
-    FinPara
-
-    // Mostrar tablero
-    Mientras (opcion <> "Q")
-        Para fila <- 0 hasta 3
-            Para columna <- 0 hasta 3
-                Escribir(tablero[fila, columna], " ")
-            FinPara
-            Escribir("")
-        FinPara
-
-        // Verificar si se ha ganado el juego
-        Si (tablero[0,0] = 1 AND tablero[0,1] = 2 AND tablero[0,2] = 3 AND tablero[0,3] = 4 AND
-            tablero[1,0] = 5 AND tablero[1,1] = 6 AND tablero[1,2] = 7 AND tablero[1,3] = 8 AND
-            tablero[2,0] = 9 AND tablero[2,1] = 10 AND tablero[2,2] = 11 AND tablero[2,3] = 12 AND
-            tablero[3,0] = 13 AND tablero[3,1] = 14 AND tablero[3,2] = 15 AND tablero[3,3] = 0) entonces
-            Escribir("¡Felicidades! Has ganado.")
-            opcion <- "Q"
-        FinSi
-
-        // Solicitar movimiento al usuario
-        Escribir("Ingrese U para arriba, D para abajo, L para izquierda, R para derecha, o Q para salir:")
-        Leer(opcion)
-
-        // Realizar movimiento
-        Si (opcion = "U" o opcion = "u") entonces
-            filaVacia <- 0
-            columnaVacia <- 0
-            Para fila <- 0 hasta 3
-                Para columna <- 0 hasta 3
-                    Si (tablero[fila, columna] = 0) entonces
-                        filaVacia <- fila
-                        columnaVacia <- columna
-                    FinSi
-                FinPara
-            FinPara
-            Si (filaVacia < 3) entonces
-                tablero[filaVacia, columnaVacia] <- tablero[filaVacia + 1, columnaVacia]
-                tablero[filaVacia + 1, columnaVacia] <- 0
-            FinSi
-        FinSi
-        // Implementar movimientos hacia abajo, izquierda y derecha de manera similar
-    FinMientras
-
-    FinAlgoritmo
+    // Inicializar el tablero
+    entero valor = 1
+    para i = 0 hasta 3 con paso 1 hacer
+        para j = 0 hasta 3 con paso 1 hacer
+            si valor < 16 entonces
+                tablero[i, j] = valor
+                valor = valor + 1
+            si_no
+                tablero[i, j] = 0
+            fin_si
+        fin_para
+    fin_para
+    
+    // Mezclar el tablero
+    para k = 1 hasta 1000 con paso 1 hacer
+        opcion = azar(4)
+        segun opcion hacer
+            1: 
+                // Mover hacia arriba
+                si x_vacio < 3 entonces
+                    tablero[x_vacio, y_vacio] = tablero[x_vacio + 1, y_vacio]
+                    x_vacio = x_vacio + 1
+                    tablero[x_vacio, y_vacio] = 0
+                fin_si
+            2:
+                // Mover hacia abajo
+                si x_vacio > 0 entonces
+                    tablero[x_vacio, y_vacio] = tablero[x_vacio - 1, y_vacio]
+                    x_vacio = x_vacio - 1
+                    tablero[x_vacio, y_vacio] = 0
+                fin_si
+            3:
+                // Mover hacia la izquierda
+                si y_vacio < 3 entonces
+                    tablero[x_vacio, y_vacio] = tablero[x_vacio, y_vacio + 1]
+                    y_vacio = y_vacio + 1
+                    tablero[x_vacio, y_vacio] = 0
+                fin_si
+            4:
+                // Mover hacia la derecha
+                si y_vacio > 0 entonces
+                    tablero[x_vacio, y_vacio] = tablero[x_vacio, y_vacio - 1]
+                    y_vacio = y_vacio - 1
+                    tablero[x_vacio, y_vacio] = 0
+                fin_si
+        fin_segun
+    fin_para
+    
+    // Bucle principal del juego
+    repetir
+        // Imprimir el tablero
+        para i = 0 hasta 3 con paso 1 hacer
+            para j = 0 hasta 3 con paso 1 hacer
+                escribir sin saltar tablero[i, j], " "
+            fin_para
+            escribir ""
+        fin_para
+        
+        // Solicitar al usuario que ingrese un movimiento
+        escribir "Ingresa un movimiento (W: Arriba, S: Abajo, A: Izquierda, D: Derecha): "
+        leer movimiento
+        
+        // Mover la ficha
+        segun movimiento hacer
+            "W":
+                si x_vacio < 3 entonces
+                    tablero[x_vacio, y_vacio] = tablero[x_vacio + 1, y_vacio]
+                    x_vacio = x_vacio + 1
+                    tablero[x_vacio, y_vacio] = 0
+                fin_si
+            "S":
+                si x_vacio > 0 entonces
+                    tablero[x_vacio, y_vacio] = tablero[x_vacio - 1, y_vacio]
+                    x_vacio = x_vacio - 1
+                    tablero[x_vacio, y_vacio] = 0
+                fin_si
+            "A":
+                si y_vacio < 3 entonces
+                    tablero[x_vacio, y_vacio] = tablero[x_vacio, y_vacio + 1]
+                    y_vacio = y_vacio + 1
+                    tablero[x_vacio, y_vacio] = 0
+                fin_si
+            "D":
+                si y_vacio > 0 entonces
+                    tablero[x_vacio, y_vacio] = tablero[x_vacio, y_vacio - 1]
+                    y_vacio = y_vacio - 1
+                    tablero[x_vacio, y_vacio] = 0
+                fin_si
+        fin_segun
+        
+        // Verificar si el usuario ha resuelto el rompecabezas
+        si tablero[0,0]=1 y tablero[0,1]=2 y tablero[0,2]=3 y tablero[0,3]=4 y
+           tablero[1,0]=5 y tablero[1,1]=6 y tablero[1,2]=7 y tablero[1,3]=8 y
+           tablero[2,0]=9 y tablero[2,1]=10 y tablero[2,2]=11 y tablero[2,3]=12 y
+           tablero[3,0]=13 y tablero[3,1]=14 y tablero[3,2]=15 y tablero[3,3]=0 entonces
+            escribir "¡Felicitaciones! Has resuelto el rompecabezas."
+            salir
+        fin_si
+    hasta que falso
+    fin_algoritmo
 
      
 </code>
@@ -465,100 +443,96 @@ Ejercicios del 51 al 60
 <h3> Sudoku Solver: </h3>
 <pre>
     <code>
-    Algoritmo Resolver_Sudoku
-    // Definir la matriz para el Sudoku
-    Definir sudoku[9,9]: Entero
 
-    // Ingresar el Sudoku inicial (0 para espacios vacíos)
-    Leer_Sudoku(sudoku)
+    Proceso ResolverSudoku
 
-    // Mostrar el Sudoku inicial
-    Mostrar_Sudoku(sudoku)
+    // Definir la matriz del Sudoku
+    Dimension sudoku[9, 9]
+    // Esta matriz representa un Sudoku parcialmente lleno
+    // Usa 0 para las celdas vacías
+    
+    // Inicialización del Sudoku (puedes cambiar estos valores para probar diferentes Sudokus)
+    sudoku[0,0] = 5; sudoku[0,1] = 3; sudoku[0,2] = 0; sudoku[0,3] = 0; sudoku[0,4] = 7; sudoku[0,5] = 0; sudoku[0,6] = 0; sudoku[0,7] = 0; sudoku[0,8] = 0
+    sudoku[1,0] = 6; sudoku[1,1] = 0; sudoku[1,2] = 0; sudoku[1,3] = 1; sudoku[1,4] = 9; sudoku[1,5] = 5; sudoku[1,6] = 0; sudoku[1,7] = 0; sudoku[1,8] = 0
+    sudoku[2,0] = 0; sudoku[2,1] = 9; sudoku[2,2] = 8; sudoku[2,3] = 0; sudoku[2,4] = 0; sudoku[2,5] = 0; sudoku[2,6] = 0; sudoku[2,7] = 6; sudoku[2,8] = 0
+    sudoku[3,0] = 8; sudoku[3,1] = 0; sudoku[3,2] = 0; sudoku[3,3] = 0; sudoku[3,4] = 6; sudoku[3,5] = 0; sudoku[3,6] = 0; sudoku[3,7] = 0; sudoku[3,8] = 3
+    sudoku[4,0] = 4; sudoku[4,1] = 0; sudoku[4,2] = 0; sudoku[4,3] = 8; sudoku[4,4] = 0; sudoku[4,5] = 3; sudoku[4,6] = 0; sudoku[4,7] = 0; sudoku[4,8] = 1
+    sudoku[5,0] = 7; sudoku[5,1] = 0; sudoku[5,2] = 0; sudoku[5,3] = 0; sudoku[5,4] = 2; sudoku[5,5] = 0; sudoku[5,6] = 0; sudoku[5,7] = 0; sudoku[5,8] = 6
+    sudoku[6,0] = 0; sudoku[6,1] = 6; sudoku[6,2] = 0; sudoku[6,3] = 0; sudoku[6,4] = 0; sudoku[6,5] = 0; sudoku[6,6] = 2; sudoku[6,7] = 8; sudoku[6,8] = 0
+    sudoku[7,0] = 0; sudoku[7,1] = 0; sudoku[7,2] = 0; sudoku[7,3] = 4; sudoku[7,4] = 1; sudoku[7,5] = 9; sudoku[7,6] = 0; sudoku[7,7] = 0; sudoku[7,8] = 5
+    sudoku[8,0] = 0; sudoku[8,1] = 0; sudoku[8,2] = 0; sudoku[8,3] = 0; sudoku[8,4] = 8; sudoku[8,5] = 0; sudoku[8,6] = 0; sudoku[8,7] = 7; sudoku[8,8] = 9
 
-    // Resolver el Sudoku
-    Si Resolver_Sudoku_Recursivo(sudoku, 0, 0) Entonces
-        Mostrar "Sudoku resuelto:"
-        Mostrar_Sudoku(sudoku)
-    Sino
-        Mostrar "No se pudo resolver el Sudoku"
-    FinSi
-FinAlgoritmo
+    // Función para imprimir el Sudoku
+    SubProceso ImprimirSudoku
+        Para i = 0 Hasta 8 Con Paso 1
+            Para j = 0 Hasta 8 Con Paso 1
+                Escribir Sin Saltar sudoku[i, j], " "
+            FinPara
+            Escribir ""
+        FinPara
+    Fin SubProceso
 
-Funcion Resolver_Sudoku_Recursivo(sudoku, fila, columna)
-    // Si ya hemos llegado al final del Sudoku, hemos terminado
-    Si fila >= 9 Entonces
-        Devolver Verdadero
-    FinSi
-
-    // Si la celda actual ya está llena, pasar a la siguiente
-    Si sudoku[fila, columna] != 0 Entonces
-        Si columna < 8 Entonces
-            Resolver_Sudoku_Recursivo(sudoku, fila, columna + 1)
-        Sino
-            Resolver_Sudoku_Recursivo(sudoku, fila + 1, 0)
-        FinSi
-    FinSi
-
-    // Probar números del 1 al 9 en la celda actual
-    Para num <- 1 Hasta 9 Con Paso 1 Hacer
-        // Verificar si el número es válido
-        // Verificar si el número ya existe en la fila
-        Valido <- Verdadero
-        Para i <- 0 Hasta 8 Con Paso 1 Hacer
-            Si sudoku[fila, i] == num Entonces
-                Valido <- Falso
+    // Función para verificar si es seguro poner un número en una celda
+    SubProceso EsSeguro(fila, columna, num) Como Logico
+        // Verificar la fila
+        Para i = 0 Hasta 8 Con Paso 1
+            Si sudoku[fila, i] = num Entonces
+                Retornar Falso
             FinSi
         FinPara
-
-        // Verificar si el número ya existe en la columna
-        Si Valido Entonces
-            Para i <- 0 Hasta 8 Con Paso 1 Hacer
-                Si sudoku[i, columna] == num Entonces
-                    Valido <- Falso
-                FinSi
-            FinPara
-        FinSi
-
-        // Verificar si el número ya existe en el cuadrante 3x3
-        Si Valido Entonces
-            Para i <- (fila/3)*3 Hasta (fila/3)*3 + 2 Con Paso 1 Hacer
-                Para j <- (columna/3)*3 Hasta (columna/3)*3 + 2 Con Paso 1 Hacer
-                    Si sudoku[i, j] == num Entonces
-                        Valido <- Falso
-                    FinSi
-                FinPara
-            FinPara
-        FinSi
-
-        // Si el número es válido, intentar ponerlo en la celda actual
-        Si Valido Entonces
-            sudoku[fila, columna] <- num
-            Si columna < 8 Entonces
-                Si Resolver_Sudoku_Recursivo(sudoku, fila, columna + 1) Entonces
-                    Devolver Verdadero
-                FinSi
-            Sino
-                Si Resolver_Sudoku_Recursivo(sudoku, fila + 1, 0) Entonces
-                    Devolver Verdadero
-                FinSi
+        
+        // Verificar la columna
+        Para i = 0 Hasta 8 Con Paso 1
+            Si sudoku[i, columna] = num Entonces
+                Retornar Falso
             FinSi
-            sudoku[fila, columna] <- 0
-        FinSi
-    FinPara
+        FinPara
+        
+        // Verificar el subcuadro 3x3
+        inicioFila = fila - (fila % 3)
+        inicioColumna = columna - (columna % 3)
+        Para i = 0 Hasta 2 Con Paso 1
+            Para j = 0 Hasta 2 Con Paso 1
+                Si sudoku[inicioFila + i, inicioColumna + j] = num Entonces
+                    Retornar Falso
+                FinSi
+            FinPara
+        FinPara
+        
+        Retornar Verdadero
+    Fin SubProceso
 
-    // Si no se puede encontrar ningún número válido, retroceder
-    Devolver Falso
-    FinFuncion
+    // Función principal para resolver el Sudoku
+    SubProceso Resolver Como Logico
+        // Buscar una celda vacía
+        Para fila = 0 Hasta 8 Con Paso 1
+            Para columna = 0 Hasta 8 Con Paso 1
+                Si sudoku[fila, columna] = 0 Entonces
+                    Para num = 1 Hasta 9 Con Paso 1
+                        Si EsSeguro(fila, columna, num) Entonces
+                            sudoku[fila, columna] = num
+                            Si Resolver() Entonces
+                                Retornar Verdadero
+                            FinSi
+                            sudoku[fila, columna] = 0
+                        FinSi
+                    FinPara
+                    Retornar Falso
+                FinSi
+            FinPara
+        FinPara
+        Retornar Verdadero
+    Fin SubProceso
 
-    Procedimiento Leer_Sudoku(sudoku)
-    // Llenar la matriz del Sudoku
-    // Código para leer el Sudoku desde la entrada estándar o desde un archivo
-    FinProcedimiento
+    // Llamar a la función para resolver el Sudoku
+    Si Resolver() Entonces
+        Escribir "Sudoku resuelto:"
+        ImprimirSudoku()
+    SiNo
+        Escribir "No se puede resolver este Sudoku"
+    FinSi
 
-    Procedimiento Mostrar_Sudoku(sudoku)
-    // Mostrar la matriz del Sudoku
-    // Código para imprimir la matriz del Sudoku
-     FinProcedimiento
+    FinProceso
      
 </code>
 </pre>
