@@ -161,7 +161,53 @@ Ejercicios del 51 al 60
 <h2> Ejercicio 54 </h2>
 <h3> Suma de Diagonales: </h3>
 <pre>
-    <code>
+<code>
+	Algoritmo  DibujoProgresivoEstrella
+	Definir matriz Como Caracter
+	Definir i, j, posicion_inicial, posicion_actual Como Entero
+	paso = 0
+	posicion_inicial = Aleatorio(1,25);
+	
+	Dimension matriz[5,5]
+	posicion_actual = 0;
+	
+	Para i = 1 Hasta 5 Con Paso 1
+		Para j = 1 Hasta 5 Con Paso 1
+			posicion_actual = posicion_actual + 1;
+			Si(posicion_actual == posicion_inicial) Entonces
+				matriz[i, 1] = "*";
+				matriz[i, 2] = "*"
+				matriz[i, 3] = "*"
+				matriz[1, j] = "*";
+				matriz[2, j] = "*"
+				matriz[3, j] = "*"
+				matriz[3, 1] = "*";
+				matriz[3, 2] = "*"
+				matriz[3, 3] = "*"
+				matriz[4, j] = "*"
+				matriz[4, j] = "*"
+				matriz[4, j] = "*"
+			
+			SiNo
+				Si(matriz[i, j] <> "*") Entonces
+					matriz[i, j] = " ";
+				FinSi
+			FinSi
+		FinPara
+	FinPara
+	
+	Para i = 1 Hasta 5 Con Paso 1
+		Para j = 1 Hasta 5 Con Paso 1
+			Escribir  matriz[i, j] Sin Saltar;
+		FinPara
+		Escribir ""
+	FinPara
+	
+    
+	
+	
+	FinAlgoritmo
+     
     </code>
 </pre>
 <br>    
