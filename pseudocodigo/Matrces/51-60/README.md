@@ -506,112 +506,104 @@ Ejercicios del 51 al 60
 <pre>
     <code>
      
-    algoritmo RompecabezasDel15
-    // Declarar la matriz y las variables
-    dimension tablero[4, 4]
-    x_vacio = 3
-    y_vacio = 3
+    Algoritmo Ejercicico_59
+	definir matriz,m_ordenado,fila,columna,op,contador,contador_correctos Como Entero
+	Definir existe Como Logico            
+	//matriz principal
+	Dimension matriz[4,4]
+	//matriz ordenada
+	Dimension m_ordenado[4,4]            
+	//Números desordenado y sin repetir
+	para posicion=1 Hasta 15 Hacer
+		Repetir
+			existe = Verdadero
+			f_aleatoria = Aleatorio(1,4)
+			c_aleatoria = Aleatorio(1,4)
+			si matriz[f_aleatoria,c_aleatoria] = 0 Entonces
+				matriz[f_aleatoria, c_aleatoria] = posicion
+				existe = Falso
+			FinSi
+		Hasta Que existe = Falso
+	FinPara
+	
+	Repetir
+		Limpiar Pantalla               
+		Escribir 'Números en posición correctas: ' contador_correctos
+		//Matriz principal
+		fila = 0
+		columna = 0
+		para i=1 Hasta 4 Hacer
+			para j=1 Hasta 4 Hacer
+				si matriz[i,j] = 0 Entonces
+					fila = i
+					columna = j
+				FinSi
+				Escribir matriz[i,j] ' || ' Sin Saltar 
+			FinPara
+			Escribir ' '
+		FinPara               
+		//Opciones que puede escojer el usuario
+		Escribir ' '
+		Escribir 'seleccione una opción'
+		Escribir '10. Salir'
+		Escribir '8. Arriba'
+		Escribir '2. Abajo'
+		Escribir '4. Izquierda'
+		Escribir '6. Derecha'
+		Leer op               
+		segun op Hacer
+			2:
+				//Proceso para mover el número hacia arriba
+				si (fila + 1) < 5 Entonces
+					matriz[fila,columna] = matriz[fila+1,columna]
+					matriz[fila+1,columna] = 0
+				FinSi
+			4:
+				//Proceso para mover el número hacia derecha
+				si columna -1 > 0 Entonces
+					matriz[fila,columna] = matriz[fila,columna-1]
+					matriz[fila,columna-1] = 0
+				FinSi
+			6:
+				//Proceso para mover el número hacia izquierda
+				si columna +1 < 5 Entonces
+					matriz[fila,columna] = matriz[fila,columna +1]
+					matriz[fila,columna+1] = 0
+				FinSi
+			8:
+				//Proceso para mover el número hacia abajo
+				si fila -1 > 0 Entonces
+					matriz[fila,columna] = matriz[fila-1,columna]
+					matriz[fila - 1,columna] = 0
+				FinSi
+		FinSegun                
+		//Matriz ordenada 
+		contador_correctos = 0
+		para i = 1 Hasta 4 Hacer
+			para j = 1 Hasta 4 Hacer
+				contador = contador + 1
+				si contador <= 15 Entonces
+					m_ordenado[i,j] = contador
+				FinSi
+				si matriz[i,j] == m_ordenado[i,j] Entonces
+					contador_correctos = contador_correctos + 1
+				FinSi
+			FinPara
+		FinPara              
+	Hasta Que contador_correctos = 15 o op = 10
+	si contador_correctos = 15 Entonces
+		Limpiar Pantalla
+		Escribir '  Felicidades, ¡Has ganado!'
+	FinSi
+	si op = 10 Entonces
+		Limpiar Pantalla
+		Escribir '¡Hasta luego!'
+	FinSi  
+	
+	
+	
+	FinAlgoritmo
 
-    // Inicializar el tablero
-    entero valor = 1
-    para i = 0 hasta 3 con paso 1 hacer
-        para j = 0 hasta 3 con paso 1 hacer
-            si valor < 16 entonces
-                tablero[i, j] = valor
-                valor = valor + 1
-            si_no
-                tablero[i, j] = 0
-            fin_si
-        fin_para
-    fin_para
-    
-    // Mezclar el tablero
-    para k = 1 hasta 1000 con paso 1 hacer
-        opcion = azar(4)
-        segun opcion hacer
-            1: 
-                // Mover hacia arriba
-                si x_vacio < 3 entonces
-                    tablero[x_vacio, y_vacio] = tablero[x_vacio + 1, y_vacio]
-                    x_vacio = x_vacio + 1
-                    tablero[x_vacio, y_vacio] = 0
-                fin_si
-            2:
-                // Mover hacia abajo
-                si x_vacio > 0 entonces
-                    tablero[x_vacio, y_vacio] = tablero[x_vacio - 1, y_vacio]
-                    x_vacio = x_vacio - 1
-                    tablero[x_vacio, y_vacio] = 0
-                fin_si
-            3:
-                // Mover hacia la izquierda
-                si y_vacio < 3 entonces
-                    tablero[x_vacio, y_vacio] = tablero[x_vacio, y_vacio + 1]
-                    y_vacio = y_vacio + 1
-                    tablero[x_vacio, y_vacio] = 0
-                fin_si
-            4:
-                // Mover hacia la derecha
-                si y_vacio > 0 entonces
-                    tablero[x_vacio, y_vacio] = tablero[x_vacio, y_vacio - 1]
-                    y_vacio = y_vacio - 1
-                    tablero[x_vacio, y_vacio] = 0
-                fin_si
-        fin_segun
-    fin_para
-    
-    // Bucle principal del juego
-    repetir
-        // Imprimir el tablero
-        para i = 0 hasta 3 con paso 1 hacer
-            para j = 0 hasta 3 con paso 1 hacer
-                escribir sin saltar tablero[i, j], " "
-            fin_para
-            escribir ""
-        fin_para
-        
-        // Solicitar al usuario que ingrese un movimiento
-        escribir "Ingresa un movimiento (W: Arriba, S: Abajo, A: Izquierda, D: Derecha): "
-        leer movimiento
-        
-        // Mover la ficha
-        segun movimiento hacer
-            "W":
-                si x_vacio < 3 entonces
-                    tablero[x_vacio, y_vacio] = tablero[x_vacio + 1, y_vacio]
-                    x_vacio = x_vacio + 1
-                    tablero[x_vacio, y_vacio] = 0
-                fin_si
-            "S":
-                si x_vacio > 0 entonces
-                    tablero[x_vacio, y_vacio] = tablero[x_vacio - 1, y_vacio]
-                    x_vacio = x_vacio - 1
-                    tablero[x_vacio, y_vacio] = 0
-                fin_si
-            "A":
-                si y_vacio < 3 entonces
-                    tablero[x_vacio, y_vacio] = tablero[x_vacio, y_vacio + 1]
-                    y_vacio = y_vacio + 1
-                    tablero[x_vacio, y_vacio] = 0
-                fin_si
-            "D":
-                si y_vacio > 0 entonces
-                    tablero[x_vacio, y_vacio] = tablero[x_vacio, y_vacio - 1]
-                    y_vacio = y_vacio - 1
-                    tablero[x_vacio, y_vacio] = 0
-                fin_si
-        fin_segun
-        
-        // Verificar si el usuario ha resuelto el rompecabezas
-        si tablero[0,0]=1 y tablero[0,1]=2 y tablero[0,2]=3 y tablero[0,3]=4 y
-           tablero[1,0]=5 y tablero[1,1]=6 y tablero[1,2]=7 y tablero[1,3]=8 y
-           tablero[2,0]=9 y tablero[2,1]=10 y tablero[2,2]=11 y tablero[2,3]=12 y
-           tablero[3,0]=13 y tablero[3,1]=14 y tablero[3,2]=15 y tablero[3,3]=0 entonces
-            escribir "¡Felicitaciones! Has resuelto el rompecabezas."
-            salir
-        fin_si
-    hasta que falso
-    fin_algoritmo
 
      
 </code>
