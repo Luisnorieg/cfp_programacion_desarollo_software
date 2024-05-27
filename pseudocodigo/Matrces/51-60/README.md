@@ -369,134 +369,94 @@ Ejercicios del 51 al 60
 <pre>
 <code>
 	Algoritmo Ejercicio_58
-	Definir matriz, op Como Entero
-	Dimension matriz[10,10]                      
-	Para i=1 Hasta 10 Con Paso 1 Hacer
-		para j=1 hasta 10 Con Paso 1 Hacer
-			matriz[i,j] = 1
-		FinPara
-	FinPara           
-	Escribir ' '            
-	
-	matriz[1,1] = 5 
-	matriz[1,2] = 0
-	matriz[1,3] = 0
-	matriz[2,1] = 0
-	matriz[2,3] = 0
-	matriz[3,1] = 0
-	matriz[3,3] = 0
-	matriz[4,1] = 0
-	matriz[4,3] = 0
-	matriz[4,4] = 0
-	matriz[4,5] = 0
-	matriz[5,1] = 0
-	matriz[5,5] = 0
-	matriz[5,10] = 0
-	matriz[6,1] = 0
-	matriz[6,5] = 0
-	matriz[6,6] = 0
-	matriz[6,7] = 0
-	matriz[5,7] = 0
-	matriz[5,8] = 0
-	matriz[5,9] = 0
-	matriz[6,9] = 0
-	matriz[7,1] = 0
-	matriz[7,9] = 0
-	matriz[8,1] = 0
-	matriz[8,9] = 0
-	matriz[8,8] = 0
-	matriz[9,1] = 0
-	matriz[9,8] = 0
-	matriz[9,7] = 0
-	matriz[10,1] = 0
-	matriz[10,2] = 0
-	matriz[10,3] = 0
-	matriz[10,4] = 0
-	matriz[10,5] = 0
-	matriz[10,6] = 0
-	matriz[10,7] = 0            
-
-	Repetir
-		
-		Para i<-1 Hasta 10 Hacer
-			Para j<-1 Hasta 10 Hacer
-				si matriz[i,j] <> 1 y matriz[i,j] <> 5  y matriz[i,j] <> 7 Entonces
-					matriz[i,j] = 0 
-				FinSi
-				Escribir  matriz[i,j], ' | ' Sin Saltar
+		Definir matriz, op Como Entero
+		Dimension matriz[10,10]                      
+		Para i=1 Hasta 10 Con Paso 1 Hacer
+			para j=1 hasta 10 Con Paso 1 Hacer
+				matriz[i,j] = 1
 			FinPara
-			Escribir ''
-		FinPara
-		Escribir ''
-		
-		
-		Escribir 'Ingrese una opción'
-		Escribir '2. Bajar'
-		Escribir '8. Subir'
-		Escribir '6. Derecha'
-		Escribir '4. Izquierda'
-		Leer opc
-		Segun opc
-			2:
-				para i = 1 Hasta 10 Hacer
-					para j = 1 Hasta 10 Hacer
-						si matriz[i,j] = 5 y i < 10 Entonces
-							si matriz[i+1,j] = 0 Entonces
-								matriz[i+1,j] = 5
-								matriz[i,j] = 0
-								i = 10
-								j = 10
+		FinPara           
+		Escribir ' '            
+		matriz[1,3] = 5
+		matriz[1,10]= 7
+		matriz[2,3] = 0
+		matriz[3,3] = 0
+		matriz[4,3] = 0
+		matriz[4,4] = 0
+		matriz[4,5] = 0
+		matriz[5,5] = 0
+		matriz[6,5] = 0
+		matriz[6,6] = 7
+		matriz[6,7] = 7
+		matriz[5,7] = 0
+		matriz[5,8] = 0
+		matriz[5,9] = 0
+		matriz[6,9] = 0
+		matriz[7,9] = 7
+		matriz[8,9] = 7
+		matriz[8,8] = 0
+		matriz[9,8] = 0
+		matriz[9,7] = 0
+		matriz[9,3]=  7
+		matriz[10,7] = 0            
+		matriz[5,3] = 7
+		matriz[4,7] = 0
+		matriz[3,7] = 0
+		matriz[6,3] = 0
+		matriz[7,5] = 0
+		matriz[7,6] = 0
+		matriz[7,7] = 0
+		matriz[7,8] = 0
+		matriz[7,3] = 7
+		matriz[8,3] = 0
+		matriz[9,3] = 0
+		matriz[9,4] = 0
+		matriz[9,5] = 7 
+		matriz[9,7] = 1
+		matriz[10,7] = 1
+		matriz[10,8] = 0
+
+			Repetir
+				Limpiar Pantalla
+				fila = 0
+				columna = 0                
+				Para i=1 Hasta 10 Con Paso 1 Hacer
+					para j=1 Hasta 10 Con Paso 1 Hacer
+						si matriz[i,j] = 5 Entonces
+							fila = i
+							columna = j
+						FinSi
+						Escribir matriz[i,j] ' | ' Sin Saltar
+					FinPara
+					Escribir ' '
+				FinPara                              
+				Para i=1 Hasta 10 Con Paso 1 Hacer
+					para j=1 Hasta 10 Con Paso 1 Hacer
+						si matriz[i,j] = 5 Entonces
+							si fila -1 > 0 y matriz[fila-1,columna] = 5 Entonces
+								matriz[fila-1,columna] = 5
+								matriz[fila,columna] = 0
+							FinSi
+							si matriz[fila+1,columna] = 0 Entonces
+								matriz[fila+1,columna] = 5
+								matriz[fila,columna] = 0
+							FinSi
+							si matriz[fila,columna+1] = 0 Entonces
+								matriz[fila,columna+1] = 5
+								matriz[fila,columna] = 0
 							FinSi
 						FinSi
 					FinPara
-				FinPara
-			6:
-				para i = 1 Hasta 10 Hacer
-					para j = 1 Hasta 10 Hacer
-						si matriz[i,j] = 5 y i < 11 Entonces
-							si matriz[i,j+1] = 0 Entonces
-								matriz[i,j+1] = 5
-								matriz[i,j] = 0
-								i = 11
-								j = 11
-							FinSi
-						FinSi
-					FinPara
-				FinPara
-			4:
-				para i = 1 Hasta 10 Hacer
-					para j = 1 Hasta 10 Hacer
-						si matriz[i,j] = 5 y i < 10 Entonces
-							si matriz[i,j-1] = 0 Entonces
-								matriz[i,j-1] = 5
-								matriz[i,j] = 0
-								i = 10
-								j = 10
-							FinSi
-						FinSi
-					FinPara
-				FinPara
-			8:
-				para i = 1 Hasta 10 Hacer
-					para j = 1 Hasta 10 Hacer
-						si matriz[i,j] = 5 y j < 10 Entonces
-							si matriz[i-1,j] = 0 Entonces
-								matriz[i-1,j] = 5
-								matriz[i,j] = 0
-								i = 10
-								j = 10
-							FinSi
-						FinSi
-					FinPara
-				FinPara
-		FinSegun
+				FinPara               
+				Leer op                
+			Limpiar Pantalla
+		Hasta Que  matriz[10,8] == 5
 		
 		Limpiar Pantalla
-	Hasta Que matriz[9,7] == 5
-	
-	Limpiar Pantalla
-	Escribir 'Felicidades has ganado'
+		Escribir 'Felicidades has ganado'
+		
 	FinAlgoritmo
+
 </code>
 </pre>
 <br>    
