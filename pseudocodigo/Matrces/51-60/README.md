@@ -5,66 +5,121 @@ Ejercicios del 51 al 60
 <h3> Suma de Matrices: </h3>
 <pre>
     <code>
-    
-	    Algoritmo Generar_Figura_Progresiva
-    Definir matriz Como Caracter
-    Definir fila, columna, paso Como Entero
-    paso = 0
-    
-    // Inicializar matriz de 10x10 con ceros
-    Dimension matriz[10,10]
-    Para fila <- 1 Hasta 10 Con Paso 1
-        Para columna <- 1 Hasta 10 Con Paso 1
-            matriz[fila, columna] = " "
-        FinPara
-    FinPara
-    
-    // Pedir al usuario las coordenadas de la figura
-    Escribir "Ingrese la fila de la figura (1-10): "
-    Leer fila
-    Escribir "Ingrese la columna de la figura (1-10): "
-    Leer columna
-    
-    Mientras paso <= 5 Hacer
-        
-        Limpiar Pantalla
-        
-        Segun paso Hacer
-            Caso 0:
-                matriz[fila, columna] = "*"
-            Caso 1:
-                matriz[fila - 1, columna] = "*"
-                matriz[fila + 1, columna] = "*"
-            Caso 2:
-                matriz[fila, columna - 1] = "*"
-                matriz[fila, columna + 1] = "*"
-            Caso 3:
-                matriz[fila - 1, columna - 1] = "*"
-                matriz[fila + 1, columna + 1] = "*"
-            Caso 4:
-                matriz[fila - 1, columna + 1] = "*"
-                matriz[fila + 1, columna - 1] = "*"
-            Caso 5:
-                Escribir "Estrella completa"
-        FinSegun
+    Algoritmo Ejercicico_59
+	definir matriz,m_ordenado,fila,columna,op,contador,contador_correctos Como Entero
+	Definir existe Como Logico            
+	//matriz principal
+	Dimension matriz[4,4]
+	//matriz ordenada
+	Dimension m_ordenado[4,4]            
+	//Números desordenado y sin repetir
+	para posicion=1 Hasta 15 Hacer
+		Repetir
+			existe = Verdadero
+			f_aleatoria = Aleatorio(1,4)
+			c_aleatoria = Aleatorio(1,4)
+			si matriz[f_aleatoria,c_aleatoria] = 0 Entonces
+				matriz[f_aleatoria, c_aleatoria] = posicion
+				existe = Falso
+			FinSi
+		Hasta Que existe = Falso
+	FinPara
+	
+	///arma auto
+	para i = 1 Hasta 4 Hacer
+		para j = 1 Hasta 4 Hacer
+			contador = contador + 1 
+			si contador < 15 Entonces
+				matriz[i,j] = contador
+			SiNo
+				Si contador == 15 Entonces
+					matriz[i,j] = 0;
+					matriz[4,4] = 15; 
+				FinSi
+			FinSi
+		FinPara
+	FinPara   
+	
+	Repetir
+		Limpiar Pantalla               
+		Escribir 'Números en posición correctas: ' contador_correctos
+		//Matriz principal
+		fila = 0
+		columna = 0
+		para i=1 Hasta 4 Hacer
+			para j=1 Hasta 4 Hacer
+				si matriz[i,j] = 0 Entonces
+					fila = i
+					columna = j
+				FinSi
+				Escribir matriz[i,j] ' || ' Sin Saltar 
+			FinPara
+			Escribir ' '
+		FinPara               
+		//Opciones que puede escojer el usuario
+		Escribir ' '
+		Escribir 'seleccione una opción'
+		Escribir '10. Salir'
+		Escribir '8. Arriba'
+		Escribir '2. Abajo'
+		Escribir '4. Izquierda'
+		Escribir '6. Derecha'
+		Leer op               
+		segun op Hacer
+			2:
+				//Proceso para mover el número hacia arriba
+				si (fila + 1) < 5 Entonces
+					matriz[fila,columna] = matriz[fila+1,columna]
+					matriz[fila+1,columna] = 0
+				FinSi
+			4:
+				//Proceso para mover el número hacia derecha
+				si columna -1 > 0 Entonces
+					matriz[fila,columna] = matriz[fila,columna-1]
+					matriz[fila,columna-1] = 0
+				FinSi
+			6:
+				//Proceso para mover el número hacia izquierda
+				si columna +1 < 5 Entonces
+					matriz[fila,columna] = matriz[fila,columna +1]
+					matriz[fila,columna+1] = 0
+				FinSi
+			8:
+				//Proceso para mover el número hacia abajo
+				si fila -1 > 0 Entonces
+					matriz[fila,columna] = matriz[fila-1,columna]
+					matriz[fila - 1,columna] = 0
+				FinSi
+		FinSegun                
+		//Matriz ordenada 
+		contador_posicion = 0
+		contador_correctos = 0
+		para i = 1 Hasta 4 Hacer
+			para j = 1 Hasta 4 Hacer
+				contador_posicion = contador_posicion + 1;
+				si matriz[i,j] == contador_posicion Entonces
+					contador_correctos = contador_correctos + 1;
+					Escribir contador_correctos
+				FinSi
+			FinPara
+		FinPara
+		 
+	Hasta Que contador_correctos = 15 o op = 10
+	si contador_correctos = 15 Entonces
+		Limpiar Pantalla
+		Escribir '  Felicidades, ¡Has ganado!'
+	FinSi
+	si op = 10 Entonces
+		Limpiar Pantalla
+		Escribir '¡Hasta luego!'
+	FinSi  
+	
+	
 
-        // Mostrar matriz
-        Para fila <- 1 Hasta 10 Con Paso 1
-            Para columna <- 1 Hasta 10 Con Paso 1
-                Escribir Sin Saltar matriz[fila, columna]
-            FinPara
-            Escribir "" 
-        FinPara
-        
-        Si paso < 5 Entonces
-            Escribir "Presione una tecla para continuar..."
-            Leer tecla 
-        FinSi
-        
-        paso = paso + 1
-    FinMientras
-    
-    FinAlgoritmo
+	FinAlgoritmo
+
+
+	
 
      
 </code>
