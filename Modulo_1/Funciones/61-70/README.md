@@ -175,7 +175,16 @@ FinAlgoritmo
 <h3> Inversión de una cadena: </h3>
 <pre>
     <code>
-    </code>
+	    Funcion convertir(i,a,resultado)
+            Para i= Longitud(a) Hasta 1 Con Paso -1 Hacer
+                Escribir Subcadena(a, i,i ) Sin Saltar
+            FinPara
+            Escribir ""
+        FinFuncion
+        Algoritmo sin_titulo
+            convertir(1,'hola',1)
+            FinAlgoritmo
+</code>
 </pre>
 <br>    
 
@@ -183,7 +192,30 @@ FinAlgoritmo
 <h3> Verificación de número primo: </h3>
 <pre>
     <code>
-    </code>
+	    Funcion resultado<-primo(num)
+            Definir divisor, limite Como Entero
+            
+            resultado = Verdadero
+            limite = redon(raiz(num))
+            divisor = 2
+            
+            si num <= 1 Entonces
+                resultado = Falso
+            SiNo
+                Mientras resultado Y divisor <= limite Hacer
+                    Si num % divisor == 0 Entonces
+                        resultado = Falso
+                    SiNo
+                        divisor = divisor + 1
+                    FinSi
+                FinMientras
+            FinSi
+        FinFuncion
+        Algoritmo sin_titulo
+            Leer num
+            Imprimir primo(num)
+        FinAlgoritmo
+</code>
 </pre>
 <br>    
 
