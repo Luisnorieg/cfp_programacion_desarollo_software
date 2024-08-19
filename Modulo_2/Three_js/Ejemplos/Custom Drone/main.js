@@ -12,7 +12,7 @@ renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 
 
-var geometry = new THREE.BoxGeometry( 1,1,1 );
+var geometry = new THREE.BoxGeometry( 0,0,0 );
 var material = new THREE.MeshBasicMaterial(  );
 var cube = new THREE.Mesh( geometry, material );
 scene.add( cube );
@@ -37,7 +37,22 @@ function (error) {
 );
 
 let loader1 =  new THREE.GLTFLoader();
-loader.load('./recursos/model/motor/Motor1.gltf', 
+loader.load('./recursos/model/cam/Cam2.gltf', 
+function (gltf) {
+    scene.add(gltf.scene);
+    renderer.render(scene, camera);
+},
+function (xhr) {
+      console.log((xhr.loaded / xhr.total * 100 ) + '% cargado');
+},
+function (error) {
+    console.error('Un error ocurrió', error);
+}
+);
+
+
+let loader2 =  new THREE.GLTFLoader();
+loader.load('./recursos/model/motor/Motor2.gltf', 
 function (gltf) {
     scene.add(gltf.scene);
     renderer.render(scene, camera);
@@ -52,8 +67,8 @@ function (error) {
 
 
 
-let loader2 =  new THREE.GLTFLoader();
-loader.load('./recursos/model/helices/Helice1.gltf', 
+let loader3 =  new THREE.GLTFLoader();
+loader.load('./recursos/model/helices/Helice2.gltf', 
 function (gltf) {
     gltf.scene.traverse(function (child) {
     if (child.isMesh) {
@@ -71,6 +86,8 @@ function (error) {
 );
 
 
+
+
 const light = new THREE.PointLight( 0xffffff,  10);
 light.position.set( 50, 50, 50 );
 scene.add( light );
@@ -85,15 +102,15 @@ function render() {
     renderer.render( scene, camera );
     cube.rotation.x += 0.05;
     cube.rotation.z += 0.05;
+    scene.traverse(function (child) {
+        if (child.name === 'helice1') {
+        child.rotation.y += 0.2;
+        }
+    });
     
 
 }
 
-scene.traverse(function (child) {
-    if (child.name === 'helice1') {
-    child.rotation.x += 0.1;
-    }
-});
 
 
 
