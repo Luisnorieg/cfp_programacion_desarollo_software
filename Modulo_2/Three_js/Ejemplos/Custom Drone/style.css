@@ -1,0 +1,25 @@
+.direccion{
+    list-style: none;
+
+}
+
+#motor{
+    width: 70px;
+    height: 25px;
+}
+
+#camara{
+    width: 80px;
+    height: 25px;
+}
+
+#helice{
+    width: 70px;
+    height: 25px;
+}
+
+#base{
+    width: 60px;
+    height: 25px;
+}
+
