@@ -1,25 +1,66 @@
-.direccion{
+.direccion {
     list-style: none;
-
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    padding-left: 500px;
+    padding-top: 500px;
+    gap: 12px;
 }
 
 #motor{
-    width: 70px;
-    height: 25px;
+    width: 30px;
+    height: 15%;
+    border-radius: 50px;
+    width: 80px;
+    height: 30px;
+    color: #fff;
+    z-index: 1;
+    display: flex;
+    background: #000;
+    position: relative;
+    cursor: pointer;
 }
 
 #camara{
+    width: 30px;
+    height: 15%;
+    border-radius: 50px;
     width: 80px;
-    height: 25px;
+    height: 30px;
+    color: #fff;
+    z-index: 1;
+    display: flex;
+    background: #000;
+    position: relative;
+    cursor: pointer;
 }
 
 #helice{
-    width: 70px;
-    height: 25px;
+    width: 30px;
+    height: 15%;
+    border-radius: 50px;
+    width: 80px;
+    height: 30px;
+    color: #fff;
+    z-index: 1;
+    display: flex;
+    background: #000;
+    position: relative;
+    cursor: pointer;
 }
 
 #base{
+    width: 30px;
+    height: 15%;
+    border-radius: 50px;
     width: 60px;
-    height: 25px;
+    height: 30px;
+    color: #fff;
+    z-index: 1;
+    display: flex;
+    background: #000;
+    position: relative;
+    cursor: pointer;
 }
 

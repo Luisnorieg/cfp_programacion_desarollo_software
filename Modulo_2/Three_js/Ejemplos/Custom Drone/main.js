@@ -57,9 +57,9 @@ array_motor.forEach(obj => {
 
 var scene = new THREE.Scene();
 
-var camera = new THREE.PerspectiveCamera(20, window.innerWidth / window.innerHeight, 0.1, 100);
+var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
 scene.add(camera);
-camera.position.set(0, 8, 10);
+camera.position.set(0, 4, 10);
 camera.lookAt(new THREE.Vector3());
 
 // Configuración del renderer
