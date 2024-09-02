@@ -222,7 +222,7 @@ const animate = () => {
     const elapsedTime = clock.getElapsedTime();
 
     if (movingUp) {
-        if (droneParts.base.position.y < 1) {
+        if (droneParts.base.position.y < 3) {
             // Bajar el dron 
         droneParts.base.position.y += moveSpeed;
         droneParts.camaras.position.y += moveSpeed;
@@ -249,16 +249,15 @@ const animate = () => {
             droneParts.camaras.position.x -= moveSpeed;
             droneParts.motor.position.x -= moveSpeed;
             droneParts.helice.position.x -= moveSpeed;
-    }
-    
+}
 
     if (movingRight) {
+        
         droneParts.base.position.x += moveSpeed;
         droneParts.camaras.position.x += moveSpeed;
         droneParts.motor.position.x += moveSpeed;
         droneParts.helice.position.x += moveSpeed;
     }
-
 
     // Rotar la hélice
     droneParts.helice.traverse((child) => {
