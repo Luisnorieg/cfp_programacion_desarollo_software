@@ -1,0 +1,7 @@
+// usoModulo.mjs
+import { fs } from './ejercicio11.mjs';
+
+fs.readFile('./archivo.txt', 'utf8', (err, data) => {
+    if (err) throw err;
+    console.log(data);
+});
