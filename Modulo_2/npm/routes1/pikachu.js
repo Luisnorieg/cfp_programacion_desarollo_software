@@ -2,13 +2,13 @@ const express = require('express');
 const router = express.Router();
 
 // Datos de ejemplo
-let pokemons = [
+let Pikachu = [
     { id: 1, nombre: 'Pikachu', tipo: 'Eléctrico' }
 ];
 
 // Obtener todos los Pokémon
 router.get('/', (req, res) => {
-    res.json(pokemons);
+    res.json(Pikachu);
 });
 
 

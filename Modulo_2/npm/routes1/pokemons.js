@@ -7,10 +7,5 @@ router.get('/', (req, res) => {
     res.json('Bienvenidos');
 });
 
-// Obtener un Pokémon por ID
-router.get('/', (req, res) => {
-
-});
-
 
 module.exports = router;

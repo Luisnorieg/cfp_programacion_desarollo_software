@@ -2,21 +2,24 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
-const pokemonRoutes = require('./pokemons');
-app.use(express.json());
-app.use('/pokemons', pokemonRoutes);
+// const pokemonRoutes = require('./pokemons');
+// app.use(express.json());
+// app.use('/pokemons', pokemonRoutes);
+
+// const primer = require('./pikachu')
+// app.use(express.json());
+// app.use('/pokemons/:pikachu', primer)
 
 
-app.get('/pokemons/:id', function (req, res){
-    res.send('Recibiendo 2');
-});
 
-app.get('/pokemons', function (req, res) {
-    res.send('Recibiendo 1');
+
+app.get('/pokemons/:charmander', function (req, res) {
+    console.log('hola');
+    res.json(ditto.json);
 });
 
 app.get('/', function (req, res) {
-    res.send('¡Bienvenido a la API de Pokémon!');
+    res.json('¡Bienvenido a la API de Pokémon!');
 });
 
 
