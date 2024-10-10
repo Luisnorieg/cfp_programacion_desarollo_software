@@ -21,7 +21,7 @@ for (let i = 0; i < aleatorio(3,4); i++) {
 }
 for (let i = 0; i < Array.length; i++) {
     if(num_f === laberinto ){
-        console.log(boom);
+        console.log("fin del juego");
     }
 }
 

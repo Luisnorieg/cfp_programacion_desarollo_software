@@ -25,4 +25,6 @@ let citas = [
         'texto': "El mundo sufre mucho, no por la violencia de las malas personas sino por el silencio de las buenas personas." 
     },
 
+
+
 ]
