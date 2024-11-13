@@ -21,7 +21,7 @@ CREATE TABLE clientes (
 CREATE TABLE pedidos (
     id INTEGER PRIMARY KEY NOT NULL,
     clientes_id INTEGER NOT NULL,
-     FOREIGN KEY (clientes_id) REFERENCES clientes (id)
+    FOREIGN KEY (clientes_id) REFERENCES clientes (id)
 );
 
 
