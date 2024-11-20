@@ -1,8 +1,9 @@
 ---
 import type { GetStaticPaths } from "astro";
-import type {pokemonListResponse} from "@interfaces/pokemon-list.response" 
-import MainLayout from "@layouts/MainLayout.astro"
-import PokemonsCards from "@components/pokemons/pokemonsCards.astro"
+import type {pokemonListResponse} from "../../interfaces/pokemon-list.response" 
+import MainLayout from "../../layouts/MainLayout.astro"
+import PokemonsCards from "../../components/pokemons/pokemonsCards.astro"
+import Title from "../../components/pokemons/Shared/Title.astro";
 
 const title = 'pokémos Static | Home'
 
@@ -20,8 +21,10 @@ const {page} = Astro.props;
 
 <MainLayout title={title}>
 	
-	<h1 class="text-3xl">Listado de pokémos</h1>
-	<hr>
+	<Title>
+		Listado de Paginado
+	</Title>
+
 	<section aria-label="Listado de pokémos" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 mt-5">
 
 		{
