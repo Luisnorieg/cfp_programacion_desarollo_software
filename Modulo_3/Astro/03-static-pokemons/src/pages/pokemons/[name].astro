@@ -75,7 +75,7 @@ const imageScr = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprit
 
 
     const handlePageLoad = () => {
-        let favoritePokemons: FavoritePokemon[] = JSON.parse(
+        let favoritePokemons: FavoritePokemons[] = JSON.parse(
             localStorage.getItem('favorites') ?? '[]'
         );
         console.log('favotirePokemon');
