@@ -1,0 +1,53 @@
+---
+import type { Book } from '../../types'; // Cambia a importación solo de tipo
+import type {BookListResponse} from "../../interfaces/book-list-response"
+import type { GetStaticPaths } from "astro";
+import MainLayout from '../../layouts/MainLayout.astro';
+const { id } = Astro.params; // Obtén el ID del libro de la URL
+
+// Realiza la solicitud a la API de Gutendex para obtener el libro específico
+const response = await fetch(`https://gutendex.com/books/${id}`);
+const book: Book = await response.json(); // Usa el tipo Book
+
+if (!book) {
+    throw new Error("Libro no encontrado");
+}
+
+
+
+export const getStaticPaths = (async() => {
+
+const resp = await fetch('https://gutendex.com/books');
+const {results} = await resp.json() as BookListResponse;
+
+return results.map(({id}) =>({
+    params: { id },
+    props: { id: id }
+}));
+
+
+}) satisfies GetStaticPaths;;
+
+---
+<body class=" bg-black text-slate-100 m-auto max-w-screen-2xl">
+    <div class="mt-64 flex justify-center items-center">
+        <div class="flex justify-center items-center">
+
+            <div class:list={[
+                ` rounded bg-red-500 text-center p-2 `,
+            
+            ]}> 
+            
+            <h1>{book.title}</h1>
+            <p>Autor: {book.authors.map((author: { name: string }) => author.name).join(', ')}</p> <!-- Especifica el tipo de 'author' -->
+            <p>Fecha de Publicacion: {book.formats['text/html'] ? 'Disponible en HTML' : 'No disponible'}</p>
+            <p>Descripcion: {book.description || 'No hay descripcion disponible.'}</p>
+            <img class="ml-16 mt-2" src=`https://www.gutenberg.org/cache/epub/${id}/pg${id}.cover.medium.jpg` alt="">
+            <a href={book.formats['text/html']}>Leer en linea</a>
+            
+            </div>
+            </div>
+    </div>
+
+</body>
+    

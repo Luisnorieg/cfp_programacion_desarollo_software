@@ -1,0 +1,37 @@
+---
+import type { GetStaticPaths } from 'astro';
+import MainLayout from "../../layouts/MainLayout.astro";
+import type { BookListResponse } from "../../interfaces/book-list-response";
+
+// Definir la función getStaticPaths
+export const getStaticPaths: GetStaticPaths = async () => {
+    const resp = await fetch("https://gutendex.com/books/?limit=10");
+    const data: BookListResponse = await resp.json();
+
+    // Generar las rutas dinámicamente
+    const paths = data.results.map(book => ({
+        params: { name: encodeURIComponent(book.title) } // Asegúrate de codificar el título
+    }));
+
+    return paths;
+};
+
+// Obtener el nombre del libro desde los parámetros
+const { name } = Astro.params;
+
+// Hacer una llamada a la API para obtener los detalles del libro basado en el nombre
+const resp = await fetch(`https://gutendex.com/books/?search=${encodeURIComponent(name)}`);
+const data: BookListResponse = await resp.json();
+
+// Aquí podrías agregar lógica para manejar si no se encuentra el libro
+const book = data.results[1]; // Suponiendo que el primer resultado es el correcto
+if (!book) {
+    throw new Error("Book not found");
+}
+---
+
+<MainLayout title={book.title}>
+    <h1>{book.title}</h1>
+    <p>{book.authors.map(author => author.name).join(', ')}</p>
+    {/* Otros detalles del libro */}
+</MainLayout>

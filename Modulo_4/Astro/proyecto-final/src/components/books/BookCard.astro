@@ -1,0 +1,105 @@
+---
+import type { GetStaticPaths } from "astro";
+import type { BookListResponse } from "../../interfaces/book-list-response";
+import type { Book } from '../../types'; // Cambia a importación solo de tipo
+
+// Realiza la solicitud a la API de Gutendex
+const response = await fetch('https://gutendex.com/books');
+const data = await response.json() as BookListResponse;
+const books: Book[] = data.results;
+const resp = await fetch("https://gutendex.com/books/")
+const data1 = (await resp.json()) as BookListResponse
+const autor = await data.results[0].authors[0].name
+const title = "Explorador de libros"
+
+
+let searchQuery = '';
+
+
+
+---
+
+<!-- <a href=`/books/${data.results[0].authors[0].name}`>
+
+	<section 
+	aria-label="Listado de libros"
+	class="grid grid-cols-1 gap-4 sm:grid-cols-3 md:grid-cols-5"
+	>
+		{
+			data.results.map((book) => (
+				<div>
+					<img class="flex justify-center items-center ml-12" src=`https://www.gutenberg.org/cache/epub/${book.id}/pg${book.id}.cover.medium.jpg` alt={book.title}>
+				<h2 class="flex justify-center items-center"> {book.title}  </h2>
+				<p class="flex justify-center items-center "> {book.authors.map(author => author.name)}</p>
+				</div>
+			))
+		}
+	</section>
+
+</a> -->
+
+
+<style>
+  .search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: #000000;
+  }
+  .search-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 300px;
+    margin-right: 10px;
+  }
+  .search-button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .search-button:hover {
+    background-color: #0056b3;
+  }
+  .book-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  .book-item {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 10px 0;
+    text-align: center;
+    transition: background-color 0.3s;
+  }
+  .book-item:hover {
+    background-color: #000000;
+  }
+</style>
+
+<h1 class="flex justify-center text-3xl pb-5"></h1>
+
+<div class="search-container">
+  <input 
+    type="text" 
+    class="search-input" 
+    placeholder="Buscar por título..." 
+    value={searchQuery} 
+    onInput={(e) => searchQuery = e.target.value} 
+  />
+  <button class="search-button" onclick={() => searchQuery = ''}>Buscar</button>
+</div>
+
+<ul class="book-list grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 mt-5"> 
+    {books.filter(book => 
+        book.title.toLowerCase().includes(searchQuery.toLowerCase())
+    ).map((book: Book) => (
+        <li key={book.id} class="book-item">
+            <a href={`/books/${book.id}`}>{book.title}</a>
+        </li>
+    ))}
+</ul>

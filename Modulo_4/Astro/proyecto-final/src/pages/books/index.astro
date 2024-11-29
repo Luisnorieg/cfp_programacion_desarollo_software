@@ -1,0 +1,22 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import type { BookListResponse } from "../../interfaces/book-list-response";
+const { id } = Astro.params; 
+const resp = await fetch(`https://gutendex.com/books/${id}`);
+const data: BookListResponse = await resp.json();
+---
+
+<MainLayout title="Listado de Libros">
+    <h1>Listado de Libros</h1>
+    <section aria-label="Listado de libros" class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-4 text-xs pt-12">
+        {data.results.map((book) => (
+            <div>
+                <a href={`/books/${encodeURIComponent(book.title)}`}>
+                    <img class="flex justify-center items-center ml-12" src={`https://www.gutenberg.org/cache/epub/${book.id}/pg${book.id}.cover.medium.jpg`} alt={book.title} />
+                    <h2 class="flex justify-center items-center">{book.title}</h2>
+                    <p class="flex justify-center items-center">{book.authors.map(author => author.name).join(', ')}</p>
+                </a>
+            </div>
+        ))}
+    </section>
+</MainLayout>
