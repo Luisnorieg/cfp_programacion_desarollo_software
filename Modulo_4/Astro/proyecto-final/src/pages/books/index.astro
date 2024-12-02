@@ -15,6 +15,7 @@ const data: BookListResponse = await resp.json();
                     <img class="flex justify-center items-center ml-12" src={`https://www.gutenberg.org/cache/epub/${book.id}/pg${book.id}.cover.medium.jpg`} alt={book.title} />
                     <h2 class="flex justify-center items-center">{book.title}</h2>
                     <p class="flex justify-center items-center">{book.authors.map(author => author.name).join(', ')}</p>
+                    <p> {book.id} </p>
                 </a>
             </div>
         ))}
